@@ -6,6 +6,7 @@ import classes from './Header.module.css';
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
 
+  // 로그인 여부에 따른 nav메뉴 상태
   const content = isLogin ? (
     <ul>
       <li>
