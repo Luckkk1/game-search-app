@@ -1,9 +1,9 @@
 .search {
   text-align: center;
-  background-color: #e9ecef;
+  background-color: #343a40;
   padding: 0.3em 1em;
   border-radius: 5px;
-  box-shadow: 0 0 10px #212529;
+  border: 1px solid #e9ecef;
   font-weight: 500;
 }
 

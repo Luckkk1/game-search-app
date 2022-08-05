@@ -1,12 +1,10 @@
-import SearchBar from '../UI/SeachBar';
 import classes from './MainHome.module.css';
+import MainSlide from './MainSlide';
 
 const MainHome = () => {
   return (
     <main>
-      <section>
-        <SearchBar className={classes.search} link="search" />
-      </section>
+      <MainSlide />
     </main>
   );
 };

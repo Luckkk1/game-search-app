@@ -8,14 +8,21 @@
   width: 100%;
   height: 3.5em;
   padding: 0 2em;
+  z-index: 2;
 }
 
 .logo {
-  font-size: 2em;
+  font-size: 1.2rem;
 }
 
 .logo a {
   color: #e9ecef;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .nav ul {
@@ -23,10 +30,80 @@
 }
 
 .nav a {
-  padding: 0.5em;
   color: #e9ecef;
+  font-size: 0.8rem;
+  padding: 0.5em;
 }
 
-.nav a:hover {
+.nav a:hover,
+.icon:hover {
   border-bottom: 1px solid #e9ecef;
+}
+
+.icon {
+  color: white;
+  cursor: pointer;
+  padding: 0.7em;
+  animation: fade-out-icon 300ms;
+}
+
+.icon.showIcon {
+  transform: translateX(-10.7em);
+  animation: fade-in-icon 300ms;
+}
+
+.search {
+  display: none;
+  max-width: 15em;
+  margin-right: 0.5em;
+  position: absolute;
+  top: 0.5em;
+  color: white;
+  animation: fade-out-search 300ms;
+}
+
+.search.showSearch {
+  display: block;
+  animation: fade-in-search 300ms;
+  transform: translateX(-13em);
+}
+
+@keyframes fade-in-search {
+  from {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-13em);
+  }
+}
+
+@keyframes fade-in-icon {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-10.7em);
+  }
+}
+
+@keyframes fade-out-search {
+  from {
+    opacity: 1;
+    transform: translateX(-13em);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-out-icon {
+  from {
+    transform: translateX(-10.7em);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
