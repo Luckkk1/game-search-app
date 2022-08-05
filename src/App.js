@@ -9,6 +9,7 @@ import GameList from './pages/GameList';
 import GameDetail from './pages/GameDetail';
 import GameForumCont from './pages/GameForumCont';
 import Layout from './components/Layout/Layout';
+import GameSearch from './pages/GameSearch';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path={'/forum'} element={<GameForum />} />
         <Route path={'/forum/:contId'} element={<GameForumCont />} />
         <Route path={'/list'} element={<GameList />} />
+        <Route path={'/search'} element={<GameSearch />} />
         <Route path={'/app/:gameId'} element={<GameDetail />} />
       </Routes>
     </Layout>

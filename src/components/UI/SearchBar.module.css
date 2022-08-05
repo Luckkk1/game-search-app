@@ -1,0 +1,13 @@
+.search {
+  text-align: center;
+  background-color: #e9ecef;
+  padding: 0.3em 1em;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #212529;
+  font-weight: 500;
+}
+
+.search::placeholder {
+  text-align: center;
+  font-weight: 500;
+}

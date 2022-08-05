@@ -1,5 +1,7 @@
+import MainHome from '../components/Home/MainHome';
+
 const Home = () => {
-  return <h1>Home</h1>;
+  return <MainHome />;
 };
 
 export default Home;
