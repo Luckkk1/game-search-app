@@ -1,0 +1,21 @@
+.games {
+  display: flex;
+  flex-direction: column;
+}
+
+.games h2 {
+  color: white;
+  text-align: start;
+  margin-top: 2em;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error {
+  color: white;
+  font-size: 1rem;
+  margin: 3em;
+}

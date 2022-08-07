@@ -1,11 +1,11 @@
 /* 구글폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap'); */
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: sans-serif;
   text-decoration: none;
 }
 
@@ -22,10 +22,19 @@ li {
 .container {
   text-align: center;
   margin-top: 3.5em;
-  padding: 0 5em;
+  padding: 0 10em;
+  height: 100vh;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
   color: #adb5bd;
+}
+
+.centered {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
 }
