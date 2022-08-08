@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import useFetchList from '../../Hook/useFetchList';
 import GameCard from '../UI/GameCard';
@@ -28,6 +29,9 @@ const HomeGameList = props => {
 
   return (
     <section className={classes.games}>
+      <Link className={classes.more} to={props.link}>
+        더 보기
+      </Link>
       <h2>{props.listName}</h2>
       {isLoading ? (
         <div className="centered">

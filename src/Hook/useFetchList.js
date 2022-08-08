@@ -26,6 +26,7 @@ const useFetchList = () => {
           img: game.background_image,
           id: game.id,
           metacritic: game.metacritic,
+          rating: game.rating,
         });
       }
       applyList(listData);

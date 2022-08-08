@@ -1,6 +1,23 @@
 .games {
   display: flex;
+  position: relative;
   flex-direction: column;
+}
+
+.more {
+  position: absolute;
+  color: #adb5bd;
+  border: 1px solid #adb5bd;
+  border-radius: 5px;
+  font-size: 1rem;
+  top: 3.3em;
+  right: 0;
+  padding: 0.3em 0.5em;
+}
+
+.more:hover {
+  color: white;
+  border-color: white;
 }
 
 .games h2 {
@@ -11,7 +28,7 @@
 
 .list {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .error {
