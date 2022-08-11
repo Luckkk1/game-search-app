@@ -6,10 +6,8 @@
 
 .more {
   position: absolute;
-  color: #adb5bd;
-  border: 1px solid #adb5bd;
-  border-radius: 5px;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 0.95rem;
   top: 3.3em;
   right: 0;
   padding: 0.3em 0.5em;

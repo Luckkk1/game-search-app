@@ -5,6 +5,12 @@
   margin-top: 2em;
   border-radius: 5px;
   position: relative;
+  transition: all 200ms linear;
+  background: linear-gradient(to bottom, rgb(43, 43, 43), rgb(32, 32, 32));
+}
+
+.card:hover {
+  transform: translateY(-1em);
 }
 
 .card img {
@@ -34,3 +40,12 @@
   border-radius: 5px;
   padding: 0.1em;
 }
+
+/* @keyframes popUp {
+  from {
+    transform: translateY(0), scale(1);
+  }
+  to {
+    transform: translateY(-1em), scale(1.5);
+  }
+} */

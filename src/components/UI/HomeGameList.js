@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import useFetchList from '../../Hook/useFetchList';
-import GameCard from '../UI/GameCard';
+import GameCard from './GameCard';
 import classes from './HomeGameList.module.css';
 import LoadingSpinner from './LoadingSpinner';
+import LinkBtn from './LinkBtn';
 
 const HomeGameList = props => {
   const [cards, setCards] = useState([]);
@@ -20,6 +21,7 @@ const HomeGameList = props => {
       url={game.img}
       key={game.id}
       metacritic={game.metacritic}
+      id={game.id}
     />
   ));
 
@@ -29,9 +31,9 @@ const HomeGameList = props => {
 
   return (
     <section className={classes.games}>
-      <Link className={classes.more} to={props.link}>
+      <LinkBtn className={classes.more} to={props.link}>
         더 보기
-      </Link>
+      </LinkBtn>
       <h2>{props.listName}</h2>
       {isLoading ? (
         <div className="centered">

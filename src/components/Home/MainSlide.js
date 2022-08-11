@@ -30,28 +30,30 @@ const MainSlide = () => {
     const link = `/app/${game.id}`;
     return (
       <SwiperSlide key={game.id}>
-        <h3 className={classes.name}>{game.name}</h3>
-        <div className={classes.rating}>
-          <div className={classes.ratingUpper} style={{ width: ratingScroe }}>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
+        <Link to={`/app/${game.id}`}>
+          <h3 className={classes.name}>{game.name}</h3>
+          <div className={classes.rating}>
+            <div className={classes.ratingUpper} style={{ width: ratingScroe }}>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+            </div>
+            <div className={classes.ratingLower}>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+            </div>
           </div>
-          <div className={classes.ratingLower}>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-          </div>
-        </div>
-        <p className={classes.score}>{game.rating}</p>
-        <img src={game.img} alt="" />
-        <div className={classes.shadow}></div>
-        <Link className={classes.slideButton} to={link}>
-          자세히 보기
+          <p className={classes.score}>{game.rating}</p>
+          <img src={game.img} alt="" />
+          <div className={classes.shadow}></div>
+          <button className={classes.slideButton} to={link}>
+            자세히 보기
+          </button>
         </Link>
       </SwiperSlide>
     );
@@ -59,9 +61,11 @@ const MainSlide = () => {
 
   // 레이아웃
   return (
-    <section>
+    <section className={classes.section}>
       {isLoading ? (
-        <LoadingSpinner className="centered" />
+        <div className="centered">
+          <LoadingSpinner />
+        </div>
       ) : (
         <Swiper
           className={classes.swiper}

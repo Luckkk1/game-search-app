@@ -44,7 +44,7 @@
   color: white;
   cursor: pointer;
   padding: 0.7em;
-  animation: fade-out-icon 300ms;
+  transition: all 300ms;
 }
 
 .icon.showIcon {
@@ -95,15 +95,6 @@
   }
   to {
     opacity: 0;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fade-out-icon {
-  from {
-    transform: translateX(-10.7em);
-  }
-  to {
     transform: translateX(0);
   }
 }

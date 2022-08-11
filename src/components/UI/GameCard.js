@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import classes from './GameCard.module.css';
 
 const GameCard = props => {
@@ -10,13 +12,13 @@ const GameCard = props => {
   if (meta >= 90 && meta <= 100) metaColor = '#028fde';
 
   return (
-    <div className={classes.card}>
+    <Link className={classes.card} to={`/app/${props.id}`}>
       <img src={props.url} alt="" />
       <div className={classes.description}>
         <p>{props.name}</p>
         <span style={{ background: metaColor }}>{props.metacritic}</span>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -1,0 +1,40 @@
+.aside {
+  background-color: #3c096c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 10em;
+  height: 30em;
+  flex-basis: 10%;
+  border-radius: 0 5px 5px 0;
+}
+
+.aside a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-bottom: solid 1px #adb5bd;
+  width: 100%;
+  height: 25%;
+  font-weight: 300;
+}
+
+.aside a:last-child {
+  border-bottom: none;
+}
+
+.aside a:hover {
+  background-color: #240046;
+  color: #adb5bd;
+}
+
+.aside a:first-child:hover,
+.aside a:last-child:hover {
+  border-radius: 0 5px 5px 0;
+}
+
+.icon {
+  font-size: 1.5rem;
+}

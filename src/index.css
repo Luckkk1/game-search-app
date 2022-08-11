@@ -19,11 +19,15 @@ li {
   text-decoration: none;
 }
 
+button {
+  border-style: none;
+}
+
 .container {
   text-align: center;
   margin-top: 3.5em;
   padding: 0 10em;
-  height: 100vh;
+  height: 100%;
 }
 
 .swiper-button-next::after,

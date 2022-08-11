@@ -10,6 +10,7 @@ import GameDetail from './pages/GameDetail';
 import GameForumCont from './pages/GameForumCont';
 import Layout from './components/Layout/Layout';
 import GameSearch from './pages/GameSearch';
+import Intro from './pages/Intro';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path={'*'} element={<Navigate to={'/home'} />} />
         <Route path={'/home'} element={<Home />} />
+        <Route path="/intro" element={<Intro />} />
         <Route path={'/login'} element={<Login />} />
         <Route path={'/regi'} element={<Register />} />
         <Route path={'/file'} element={<Profile />} />

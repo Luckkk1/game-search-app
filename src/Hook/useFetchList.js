@@ -4,7 +4,7 @@ const useFetchList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const sendRequest = useCallback(async (url, applyList) => {
+  const sendRequest = useCallback(async (url, applyList, randList) => {
     setIsLoading(true);
     setError(null);
     try {
@@ -29,7 +29,12 @@ const useFetchList = () => {
           rating: game.rating,
         });
       }
-      applyList(listData);
+      if (randList) {
+        randList(listData[Math.floor(Math.random() * 20)]);
+      }
+      if (applyList) {
+        applyList(listData);
+      }
     } catch (err) {
       setError(err.message);
     }

@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import SearchBar from '../UI/SeachBar';
 import classes from './Header.module.css';
+
+let firstTimeCheck = false;
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
