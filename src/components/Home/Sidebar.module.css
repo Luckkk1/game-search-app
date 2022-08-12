@@ -1,8 +1,8 @@
 .aside {
-  background-color: #3c096c;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  background-color: #3c096c;
   width: 100%;
   max-width: 10em;
   height: 30em;

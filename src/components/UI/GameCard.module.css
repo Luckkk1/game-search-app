@@ -33,19 +33,10 @@
 
 .description span {
   position: absolute;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.3rem;
   top: 0.3em;
   right: 0.3em;
   border-radius: 5px;
   padding: 0.1em;
 }
-
-/* @keyframes popUp {
-  from {
-    transform: translateY(0), scale(1);
-  }
-  to {
-    transform: translateY(-1em), scale(1.5);
-  }
-} */

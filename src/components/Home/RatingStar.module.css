@@ -1,0 +1,28 @@
+.rating {
+  unicode-bidi: bidi-override;
+  color: #888888;
+  font-size: 1.5rem;
+  width: 1040px;
+  position: absolute;
+  top: 4.7em;
+  left: 1.3em;
+  margin: 0;
+  padding: 0;
+}
+
+.ratingUpper {
+  color: #ffc300;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.ratingLower {
+  padding: 0;
+  display: flex;
+  z-index: 0;
+}

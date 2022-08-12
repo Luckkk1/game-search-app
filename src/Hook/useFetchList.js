@@ -3,6 +3,7 @@ import { useState, useCallback } from 'react';
 const useFetchList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const sendRequest = useCallback(async (url, applyList, randList) => {
     setIsLoading(true);
@@ -35,12 +36,13 @@ const useFetchList = () => {
       if (applyList) {
         applyList(listData);
       }
+      setSuccess(true);
     } catch (err) {
       setError(err.message);
     }
     setIsLoading(false);
   }, []);
-  return { isLoading, error, sendRequest };
+  return { isLoading, error, success, sendRequest };
 };
 
 export default useFetchList;

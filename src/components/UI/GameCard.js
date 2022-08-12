@@ -5,6 +5,7 @@ import classes from './GameCard.module.css';
 const GameCard = props => {
   let meta = props.metacritic;
   let metaColor;
+  // 메타스코어의 변화에 따른 숫자 색상의 변화
   if (meta >= 0 && meta < 40) metaColor = '#6c757d';
   if (meta >= 40 && meta < 60) metaColor = '#a7c957';
   if (meta >= 60 && meta < 80) metaColor = '#70e000';

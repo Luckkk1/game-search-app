@@ -8,19 +8,26 @@ const MainHome = () => {
   const gameSet = [
     {
       url: 'https://api.rawg.io/api/games?key=b710f41f043d45349abc1a4578ef0fe5&page=1&page_size=5&ordering=-metacritic&dates=2012-01-01,2022-12-31',
-      link: '/list?order=hot',
+      link: '/browse?sort=fame',
       name: '인기게임',
+      id: 'l1',
     },
     {
       url: 'https://api.rawg.io/api/games?key=b710f41f043d45349abc1a4578ef0fe5&page=1&page_size=5&ordering=-released&dates=2022-01-01,2022-12-31&metacritic=70,100',
-      link: 'list?order=latest',
+      link: '/browse?sort=new',
       name: '최신게임',
+      id: 'l2',
     },
   ];
 
   const gameList = gameSet.map(game => {
     return (
-      <HomeGameList url={game.url} link={game.link} listName={game.name} />
+      <HomeGameList
+        url={game.url}
+        link={game.link}
+        listName={game.name}
+        key={game.id}
+      />
     );
   });
 

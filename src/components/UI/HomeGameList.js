@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState, Fragment } from 'react';
 
 import useFetchList from '../../Hook/useFetchList';
 import GameCard from './GameCard';
@@ -9,7 +8,12 @@ import LinkBtn from './LinkBtn';
 
 const HomeGameList = props => {
   const [cards, setCards] = useState([]);
-  const { isLoading, error, sendRequest: fetchGameList } = useFetchList();
+  const {
+    isLoading,
+    error,
+    success,
+    sendRequest: fetchGameList,
+  } = useFetchList();
 
   useEffect(() => {
     fetchGameList(props.url, setCards);
@@ -25,23 +29,33 @@ const HomeGameList = props => {
     />
   ));
 
-  if (error) {
-    return <p className={classes.error}>불러오기가 실패했습니다.</p>;
-  }
+  let content;
+
+  if (error)
+    content = (
+      <div className="centered">
+        <p className={classes.error}>불러오기가 실패했습니다.</p>
+      </div>
+    );
+
+  if (isLoading)
+    content = (
+      <div className="centered">
+        <LoadingSpinner className="centered" />
+      </div>
+    );
+
+  if (success) content = <div className={classes.list}>{gameList}</div>;
 
   return (
     <section className={classes.games}>
-      <LinkBtn className={classes.more} to={props.link}>
-        더 보기
-      </LinkBtn>
-      <h2>{props.listName}</h2>
-      {isLoading ? (
-        <div className="centered">
-          <LoadingSpinner className="centered" />
-        </div>
-      ) : (
-        <div className={classes.list}>{gameList}</div>
-      )}
+      <Fragment>
+        <LinkBtn className={classes.more} to={props.link}>
+          더 보기
+        </LinkBtn>
+        <h2>{props.listName}</h2>
+        {content}
+      </Fragment>
     </section>
   );
 };

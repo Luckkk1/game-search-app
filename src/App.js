@@ -5,11 +5,10 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import GameForum from './pages/GameForum';
-import GameList from './pages/GameList';
+import GameBrowse from './pages/GameBrowse';
 import GameDetail from './pages/GameDetail';
 import GameForumCont from './pages/GameForumCont';
 import Layout from './components/Layout/Layout';
-import GameSearch from './pages/GameSearch';
 import Intro from './pages/Intro';
 
 const App = () => {
@@ -24,8 +23,7 @@ const App = () => {
         <Route path={'/file'} element={<Profile />} />
         <Route path={'/forum'} element={<GameForum />} />
         <Route path={'/forum/:contId'} element={<GameForumCont />} />
-        <Route path={'/list'} element={<GameList />} />
-        <Route path={'/search'} element={<GameSearch />} />
+        <Route path={'/browse'} element={<GameBrowse />} />
         <Route path={'/app/:gameId'} element={<GameDetail />} />
       </Routes>
     </Layout>
