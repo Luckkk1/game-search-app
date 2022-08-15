@@ -1,3 +1,10 @@
+.main {
+  text-align: center;
+  margin-top: 3.5em;
+  padding: 0 10em;
+  height: 100%;
+}
+
 .slideBox {
   display: flex;
   background: linear-gradient(to bottom, rgb(43, 43, 43), rgb(32, 32, 32));

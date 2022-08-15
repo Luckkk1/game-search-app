@@ -1,5 +1,7 @@
+import Regi from '../components/Auth/Regi';
+
 const Register = () => {
-  return <p>register</p>;
+  return <Regi />;
 };
 
 export default Register;

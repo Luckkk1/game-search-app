@@ -23,13 +23,6 @@ button {
   border-style: none;
 }
 
-.container {
-  text-align: center;
-  margin-top: 3.5em;
-  padding: 0 10em;
-  height: 100%;
-}
-
 .swiper-button-next::after,
 .swiper-button-prev::after {
   color: #adb5bd;
@@ -41,4 +34,8 @@ button {
   justify-content: center;
   align-items: center;
   margin: 3rem;
+}
+
+input {
+  border-style: none;
 }

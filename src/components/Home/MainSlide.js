@@ -32,7 +32,7 @@ const MainSlide = () => {
     const link = `/app/${game.id}`;
     return (
       <SwiperSlide key={game.id}>
-        <Link to={`/app/${game.id}`}>
+        <Link to={link}>
           <h3 className={classes.name}>{game.name}</h3>
           <RatingStar score={ratingScroe} />
           <p className={classes.score}>{game.rating}</p>

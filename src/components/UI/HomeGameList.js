@@ -1,4 +1,4 @@
-import { useEffect, useState, Fragment } from 'react';
+import { useEffect, useState, Fragment, memo } from 'react';
 
 import useFetchList from '../../Hook/useFetchList';
 import GameCard from './GameCard';
@@ -60,4 +60,4 @@ const HomeGameList = props => {
   );
 };
 
-export default HomeGameList;
+export default memo(HomeGameList);

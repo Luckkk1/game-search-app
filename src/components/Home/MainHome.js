@@ -32,7 +32,7 @@ const MainHome = () => {
   });
 
   return (
-    <main>
+    <main className={classes.main}>
       <div className={classes.slideBox}>
         <MainSlide />
         <Sidebar />
