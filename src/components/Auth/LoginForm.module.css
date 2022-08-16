@@ -1,0 +1,86 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.loginForm {
+  background-color: rgb(20, 18, 18);
+  margin-top: 6em;
+  width: 30em;
+  height: 40em;
+  padding: 2em 4em;
+  border-radius: 5px;
+  box-shadow: 0 2px 18px 10px rgb(0 0 0 / 25%);
+}
+
+.loginForm h2 {
+  color: white;
+  font-weight: 300;
+  font-size: 2rem;
+  margin-top: 2em;
+}
+
+.formControls {
+  margin-top: 3.8em;
+}
+
+.loginForm button {
+  width: 100%;
+  height: 4.39em;
+  border-radius: 5px;
+  margin-top: 1em;
+  cursor: pointer;
+  background-image: linear-gradient(180deg, #7161ef 0%, #2176ff 100%);
+  color: white;
+}
+
+.loginForm p {
+  margin-top: 2em;
+  font-weight: 300;
+}
+
+.btnCont:hover button {
+  animation: popUp 500ms ease-in-out alternate;
+  color: white;
+}
+
+.aCont {
+  margin-top: 3.5em;
+}
+
+.loginForm a {
+  color: #adb5bd;
+  font-weight: 300;
+  padding: 1em;
+  border: 1px solid #00bbf9;
+  border-color: #00bbf9 transparent #00bbf9 transparent;
+}
+
+.loginForm a:hover {
+  color: #00bbf9;
+}
+
+@keyframes popUp {
+  from {
+    transform: translateY(0);
+    width: 100%;
+  }
+
+  30% {
+    width: 80%;
+    padding-bottom: 5%;
+  }
+
+  50% {
+    transform: translateY(-0.6em);
+    width: 90%;
+  }
+
+  70% {
+    transform: translateY(0.3em);
+    width: 95%;
+    padding-top: 5%;
+  }
+}

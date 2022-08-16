@@ -9,7 +9,7 @@ import NationInput from './AuthInput/NationInput';
 const Regi = () => {
   return (
     <main className={classes.regi}>
-      <form>
+      <form className={classes.form}>
         <h2>환영합니다!</h2>
         <NationInput />
         <NameInput />
