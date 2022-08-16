@@ -36,7 +36,6 @@ const Regi = () => {
             </button>
           )}
         </div>
-        <p>
         <p className={classes.p}>
           이미 계정이 있으신가요?
           <Link to="/login">로그인</Link>
