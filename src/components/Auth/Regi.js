@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 import classes from './Regi.module.css';
 import EmailInput from './AuthInput/EmailInput';
@@ -7,6 +9,16 @@ import PasswordInput from './AuthInput/PasswordInput';
 import NationInput from './AuthInput/NationInput';
 
 const Regi = () => {
+  const [formValid, setFormValid] = useState(false);
+
+  const nameValid = useSelector(state => state.auth.nameValid);
+  const emailValid = useSelector(state => state.auth.emailValid);
+  const passwordValid = useSelector(state => state.auth.passwordValid);
+
+  useEffect(() => {
+    setFormValid(nameValid && emailValid && passwordValid);
+  }, [nameValid, emailValid, passwordValid]);
+
   return (
     <main className={classes.regi}>
       <form className={classes.form}>
@@ -16,9 +28,16 @@ const Regi = () => {
         <EmailInput />
         <PasswordInput />
         <div className={classes.btnCont}>
-          <button type="submit">계속</button>
+          {formValid ? (
+            <button type="submit">계속</button>
+          ) : (
+            <button type="submit" disabled>
+              항목을 입력해주세요
+            </button>
+          )}
         </div>
         <p>
+        <p className={classes.p}>
           이미 계정이 있으신가요?
           <Link to="/login">로그인</Link>
         </p>

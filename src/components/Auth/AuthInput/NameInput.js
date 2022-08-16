@@ -1,6 +1,9 @@
 import useValidate from '../../../Hook/useValidate';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import classes from './NameInput.module.css';
+import { authActions } from '../../../store/auth';
 
 const nameReg = /^[가-힝A-Za-z]{2,}$/;
 const nameValidator = enteredVal => nameReg.test(enteredVal);
@@ -14,6 +17,18 @@ const NameInput = props => {
     inputFocusHandler: nameFocusHandler,
     inputChangeHandler: nameChangeHandler,
   } = useValidate(nameValidator, '올바른 이름을 입력해주세요.');
+
+  const dispatch = useDispatch();
+  // 리덕스를 통해 error를 통합 => formValid를 이끌어냄
+  useEffect(() => {
+    // nameError에 값이 없을 때 => valid를 의미
+    const validator = setTimeout(() => {
+      dispatch(authActions.nameValidator({ nameError, enteredName }));
+    }, 300);
+    return () => {
+      clearTimeout(validator);
+    };
+  }, [dispatch, nameError, enteredName]);
 
   // 에러인 경우의 스타일클래스
   const errorStyle = error =>

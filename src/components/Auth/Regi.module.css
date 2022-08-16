@@ -39,10 +39,19 @@
   color: white;
 }
 
-.form p {
+.btnCont button:disabled {
+  animation: none;
   color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.form p {
   margin-top: 2em;
   font-weight: 300;
+}
+
+.p {
+  color: #adb5bd;
 }
 
 .form a {
