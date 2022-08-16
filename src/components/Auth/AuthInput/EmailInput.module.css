@@ -1,0 +1,59 @@
+.formControl {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  border: #adb5bd 1px solid;
+  border-radius: 5px;
+  padding: 0.7em 1em;
+  margin-bottom: 2em;
+  width: 100%;
+  height: 4.5em;
+}
+
+.formControl label {
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  color: #adb5bd;
+  top: 1.3em;
+  font-size: 0.9rem;
+  transition: all 150ms linear;
+}
+
+.formControl .focus {
+  font-size: 0.7rem;
+}
+
+.formControl input {
+  background-color: transparent;
+  color: white;
+  width: 100%;
+  height: 2.5em;
+  padding: 1em 0;
+  margin-top: 1em;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.formControl input:focus {
+  outline: none;
+}
+
+.fill {
+  font-size: 0.9rem;
+  margin-left: 0.5em;
+  color: #ffc300;
+}
+
+.error {
+  position: absolute;
+  font-size: 0.8rem;
+  color: #dc2f02;
+  top: 4.3em;
+  left: 0;
+}
+
+.errorBox {
+  border: 1px solid #dc2f02;
+}
