@@ -19,8 +19,8 @@ SwiperCore.use([Navigation, Autoplay, EffectFade]);
 const MainSlide = () => {
   const { isLoading, error, success, sendRequest: fetchList } = useFetchList();
   const [gameList, setGameList] = useState([]);
-  const url =
-    'https://api.rawg.io/api/games?key=b710f41f043d45349abc1a4578ef0fe5&page=1&page_size=3&ordering=-rating&dates=2022-01-01,2022-12-31&metacritic=80,100';
+  const RAWGAPIKEY = process.env.REACT_APP_RAWG_KEY;
+  const url = `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=1&page_size=3&ordering=-rating&dates=2022-01-01,2022-12-31&metacritic=80,100`;
 
   useEffect(() => {
     fetchList(url, setGameList);

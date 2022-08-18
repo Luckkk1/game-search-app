@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../../store/auth';
 
 import { NationList } from '../NationList';
 import classes from './NationInput.module.css';
@@ -6,6 +8,7 @@ import classes from './NationInput.module.css';
 const NationInput = props => {
   const [currentNation, setCurrentNation] = useState('');
   const [nationError, setNationError] = useState(null);
+  const dispatch = useDispatch();
 
   // 사용자의 현재 접속 국가 확인 API
   const reqeustCurrentNation = useCallback(async () => {
@@ -27,22 +30,24 @@ const NationInput = props => {
     reqeustCurrentNation();
   }, [reqeustCurrentNation]);
 
+  useEffect(() => {
+    dispatch(authActions.enteredNation(currentNation));
+  }, [currentNation]);
+
+  const NationSelectHandler = e => {
+    if (nationError) {
+      setCurrentNation(e.target.value);
+    }
+  };
+
   // 국가리스트
   const nationObtion = NationList.sort().map(e => {
-    if (e === 'South Korea') {
-      return (
-        <option selected key={e}>
-          {e}
-        </option>
-      );
-    }
     return (
-      <option defaultValue={'South Korea'} key={e}>
+      <option key={e} value={e}>
         {e}
       </option>
     );
   });
-
   return (
     <div className={classes.formControl}>
       <label htmlFor="nation" className={classes.focus}>
@@ -56,7 +61,12 @@ const NationInput = props => {
           disabled
         />
       ) : (
-        <select name="nation" className={classes.nationSelect}>
+        <select
+          name="nation"
+          className={classes.nationSelect}
+          onChange={NationSelectHandler}
+          defaultValue={'South Korea'}
+        >
           {nationObtion}
         </select>
       )}

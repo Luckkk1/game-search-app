@@ -11,6 +11,13 @@
   z-index: 2;
 }
 
+.header button {
+  font-size: 0.8rem;
+  background-color: transparent;
+  color: #e9ecef;
+  cursor: pointer;
+}
+
 .logo {
   font-size: 1.2rem;
 }
@@ -33,10 +40,12 @@
   color: #e9ecef;
   font-size: 0.8rem;
   padding: 0.5em;
+  margin-right: 0.5em;
 }
 
 .nav a:hover,
-.icon:hover {
+.icon:hover,
+.header button:hover {
   border-bottom: 1px solid #e9ecef;
 }
 
@@ -45,6 +54,7 @@
   cursor: pointer;
   padding: 0.7em;
   transition: transform 300ms;
+  margin-right: 0.2em;
 }
 
 .icon.showIcon {

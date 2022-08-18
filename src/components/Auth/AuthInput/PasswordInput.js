@@ -37,7 +37,7 @@ const PasswordInput = props => {
     return () => {
       clearTimeout(validator);
     };
-  }, [dispatch, passwordError, enteredPassword]);
+  }, [dispatch, passwordError, enteredPassword, props]);
 
   // 에러인 경우의 스타일클래스
   const errorStyle = error =>

@@ -8,9 +8,8 @@ import classes from './MainRandGame.module.css';
 const MainRandGame = () => {
   const [selected, setSelected] = useState([]);
   const { isLoading, error, sendRequest: fetchList } = useFetchList();
-
-  const url =
-    'https://api.rawg.io/api/games?key=b710f41f043d45349abc1a4578ef0fe5&page=1&page-size=50';
+  const RAWGAPIKEY = process.env.REACT_APP_RAWG_KEY;
+  const url = `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=1&page-size=50`;
 
   // 메타스코어 점수별 색지정
   let metaColor;

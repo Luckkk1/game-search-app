@@ -5,15 +5,17 @@ import MainRandGame from './MainRandGame';
 import Sidebar from './Sidebar';
 
 const MainHome = () => {
+  const RAWGAPIKEY = process.env.REACT_APP_RAWG_KEY;
+
   const gameSet = [
     {
-      url: 'https://api.rawg.io/api/games?key=b710f41f043d45349abc1a4578ef0fe5&page=1&page_size=5&ordering=-metacritic&dates=2012-01-01,2022-12-31',
+      url: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=1&page_size=5&ordering=-metacritic&dates=2012-01-01,2022-12-31`,
       link: '/browse?sort=fame',
       name: '인기게임',
       id: 'l1',
     },
     {
-      url: 'https://api.rawg.io/api/games?key=b710f41f043d45349abc1a4578ef0fe5&page=1&page_size=5&ordering=-released&dates=2022-01-01,2022-12-31&metacritic=70,100',
+      url: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=1&page_size=5&ordering=-released&dates=2022-01-01,2022-12-31&metacritic=70,100`,
       link: '/browse?sort=new',
       name: '최신게임',
       id: 'l2',

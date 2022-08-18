@@ -29,7 +29,7 @@ const EmailInput = props => {
     return () => {
       clearTimeout(validator);
     };
-  }, [emailError, dispatch, enteredEmail]);
+  }, [emailError, dispatch, enteredEmail, props]);
 
   // 에러인 경우의 스타일클래스
   const errorStyle = error =>

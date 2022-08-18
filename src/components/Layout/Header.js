@@ -1,26 +1,38 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import SearchBar from '../UI/SeachBar';
 import classes from './Header.module.css';
-
-let firstTimeCheck = false;
+import { authActions } from '../../store/auth';
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
+  const dispatch = useDispatch();
+
   const searchToggleHandler = () => {
     setIsSearching(prevState => !prevState);
   };
 
+  const logoutHandler = () => {
+    dispatch(authActions.isLogout());
+  };
+
   // 로그인 여부에 따른 nav메뉴 상태
-  const content = isLogin ? (
+  const content = isLoggedIn ? (
     <ul>
       <li>
         <NavLink to={'/file'}>프로필</NavLink>
+      </li>
+      <li>
+        <button onClick={logoutHandler}>로그아웃</button>
       </li>
     </ul>
   ) : (

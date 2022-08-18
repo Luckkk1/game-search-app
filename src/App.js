@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -10,8 +11,12 @@ import GameDetail from './pages/GameDetail';
 import GameForumCont from './pages/GameForumCont';
 import Layout from './components/Layout/Layout';
 import Intro from './pages/Intro';
+import { authActions } from './store/auth';
 
 const App = () => {
+  const dispatch = useDispatch();
+  dispatch(authActions.checkLoggedInState());
+
   return (
     <Layout>
       <Routes>

@@ -46,6 +46,12 @@
   color: white;
 }
 
+.btnCont button:disabled {
+  animation: none;
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
 .aCont {
   margin-top: 3.5em;
 }
@@ -60,6 +66,35 @@
 
 .loginForm a:hover {
   color: #00bbf9;
+}
+
+.sideMemo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  color: #f1faee;
+  text-align: center;
+  background-color: #e63946;
+  font-size: 1rem;
+  font-weight: 400;
+  right: 5em;
+  opacity: 0;
+  bottom: 0;
+  width: 20em;
+  height: 5em;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.sideMemo.show {
+  opacity: 0;
+  animation: fadeInOut 10s;
+}
+
+.sideMemo span {
+  border-bottom: 2px black groove;
+  color: #001219;
 }
 
 @keyframes popUp {
@@ -82,5 +117,25 @@
     transform: translateY(0.3em);
     width: 95%;
     padding-top: 5%;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-25em);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-25em);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0em);
   }
 }
