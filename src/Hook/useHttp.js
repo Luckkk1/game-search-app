@@ -18,10 +18,11 @@ const useHttp = () => {
         headers: requestConfig.headers ? requestConfig.headers : {},
       });
 
-      if (!res.ok) {
-        throw new Error('Request Failed');
-      }
       const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error.message || 'Request Failed');
+      }
 
       if (applyData) {
         applyData(data);
@@ -31,6 +32,8 @@ const useHttp = () => {
       }
     } catch (err) {
       setError(err.message);
+      setIsLoading(false);
+      return err.message;
     }
     setIsLoading(false);
   }, []);

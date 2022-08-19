@@ -41,15 +41,14 @@
   font-weight: 300;
 }
 
-.btnCont:hover button {
-  animation: popUp 500ms ease-in-out alternate;
-  color: white;
-}
-
 .btnCont button:disabled {
   animation: none;
   color: #adb5bd;
   cursor: not-allowed;
+}
+
+.jump {
+  animation: popUp 500ms ease-in-out alternate;
 }
 
 .aCont {
@@ -78,11 +77,11 @@
   background-color: #e63946;
   font-size: 1rem;
   font-weight: 400;
-  right: 5em;
+  right: 3em;
   opacity: 0;
   bottom: 0;
-  width: 20em;
-  height: 5em;
+  width: 25em;
+  height: 10em;
   border-radius: 5px;
   z-index: -1;
 }
@@ -95,6 +94,10 @@
 .sideMemo span {
   border-bottom: 2px black groove;
   color: #001219;
+}
+
+.spin {
+  margin-top: 2.5em;
 }
 
 @keyframes popUp {
@@ -127,12 +130,12 @@
   }
   20% {
     opacity: 1;
-    transform: translateY(-25em);
+    transform: translateY(-19em);
   }
 
   60% {
     opacity: 1;
-    transform: translateY(-25em);
+    transform: translateY(-19em);
   }
   100% {
     opacity: 0;

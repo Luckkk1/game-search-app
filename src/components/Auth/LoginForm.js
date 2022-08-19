@@ -1,7 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import useHttp from '../../Hook/useHttp';
+import { authActions } from '../../store/auth';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandPointRight } from '@fortawesome/free-solid-svg-icons';
@@ -9,18 +10,21 @@ import { faHandPointRight } from '@fortawesome/free-solid-svg-icons';
 import classes from './LoginForm.module.css';
 import EmailInput from '../Auth/AuthInput/EmailInput';
 import PasswordInput from '../Auth/AuthInput/PasswordInput';
-import { authActions } from '../../store/auth';
+import LoadingSpinner from '../UI/LoadingSpinner';
 
 const LoginForm = () => {
   const [loginFormValid, setLoginFormValid] = useState(false);
+  const [btnAnimation, setBtnAnimation] = useState(false);
   const [newErr, setNewErr] = useState(null);
   const { isLoading, error, sendRequest } = useHttp();
-
   const enteredEmail = useSelector(state => state.auth.enteredEmail);
   const enteredPw = useSelector(state => state.auth.enteredPassword);
   const dispatch = useDispatch();
+
+  // API KEY
   const FIREBASEAPIKEY = process.env.REACT_APP_FIREBASE_KEY;
 
+  // useHTTP Config
   const requestConfig = {
     url: `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASEAPIKEY}`,
     method: 'POST',
@@ -34,24 +38,27 @@ const LoginForm = () => {
     },
   };
 
+  // 에러 애니메이션 반복용
   useEffect(() => {
     setNewErr(error);
   }, [error]);
 
+  // 로그인상태와 만료 시간 리덕스에 전달
   const dispatchLoginState = data => {
     const token = data.idToken;
     const expiresIn = data.expiresIn;
     const expirationTime = new Date(new Date().getTime() + +expiresIn * 1000);
-    console.log(expiresIn);
     const expirationTimeString = expirationTime.toISOString();
     dispatch(authActions.isLogin({ token, expirationTimeString }));
   };
 
+  // 로그인 요청 함수
   const loginSubmitHandler = async e => {
     e.preventDefault();
     await sendRequest(requestConfig, dispatchLoginState, 'home');
   };
 
+  // formValid State
   const emailValid = useSelector(state => state.auth.emailValid);
   const passwordValid = useSelector(state => state.auth.passwordValid);
 
@@ -59,10 +66,46 @@ const LoginForm = () => {
     setLoginFormValid(emailValid && passwordValid);
   }, [emailValid, passwordValid]);
 
+  // 버튼 클릭 애니메이션
+  const btnAnimationHandler = () => {
+    setBtnAnimation(true);
+    setTimeout(() => {
+      setBtnAnimation(false);
+    }, 1000);
+  };
+
+  // 이하 컴포넌트 요소 ///////////////////////
+  const loadingSpinner = isLoading ? (
+    <div className={classes.spin}>
+      <LoadingSpinner />
+    </div>
+  ) : (
+    <h2>GameBot</h2>
+  );
+
+  const button = loginFormValid ? (
+    <button
+      type="submit"
+      className={btnAnimation ? classes.jump : ''}
+      onClick={btnAnimationHandler}
+    >
+      로그인
+    </button>
+  ) : (
+    <button type="submit" disabled>
+      항목을 입력해주세요.
+    </button>
+  );
+
+  let authComment = error;
+  if (authComment === 'INVALID_PASSWORD' || authComment === 'EMAIL_NOT_FOUND') {
+    authComment = 'INVALID_PASSWORD OR EMAIL_NOT_FOUND';
+  }
+
   return (
     <main className={classes.login}>
       <form className={classes.loginForm} onSubmit={loginSubmitHandler}>
-        <h2>GameBot</h2>
+        {loadingSpinner}
         <div className={classes.formControls}>
           <div className={classes.formControl}>
             <EmailInput />
@@ -71,15 +114,7 @@ const LoginForm = () => {
             <PasswordInput />
           </div>
         </div>
-        <div className={classes.btnCont}>
-          {loginFormValid ? (
-            <button type="submit">로그인</button>
-          ) : (
-            <button type="submit" disabled>
-              항목을 입력해주세요.
-            </button>
-          )}
-        </div>
+        <div className={classes.btnCont}>{button}</div>
         <div className={classes.aCont}>
           <Link to={'/regi'}>
             GameBot 친구되기 <FontAwesomeIcon icon={faHandPointRight} />
@@ -87,9 +122,7 @@ const LoginForm = () => {
         </div>
       </form>
       <div className={`${classes.sideMemo} ${newErr ? classes.show : ''}`}>
-        <p>
-          <span>아이디</span> 혹은 <span>비밀번호</span>가 일치하지 않습니다.
-        </p>
+        <p>{authComment}</p>
       </div>
     </main>
   );
