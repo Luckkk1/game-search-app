@@ -6,6 +6,7 @@ import classes from './GameDetail.module.css';
 import GameDetailSlide from './GameDetailSlide';
 import GameDetailDescription from './GameDetailDescription';
 import GameList from '../../UI/GameList';
+import ReplyBox from '../../UI/ReplyBox';
 
 const GameDetail = () => {
   const params = useParams();
@@ -71,6 +72,7 @@ const GameDetail = () => {
           check={'series'}
         />
       </div>
+      <ReplyBox />
     </main>
   );
 };

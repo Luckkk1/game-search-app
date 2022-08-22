@@ -9,6 +9,7 @@ import NameInput from './AuthInput/NameInput';
 import PasswordInput from './AuthInput/PasswordInput';
 import NationInput from './AuthInput/NationInput';
 import LoadingSpinner from '../UI/LoadingSpinner';
+import NicknameInput from './AuthInput/NicknameInput';
 
 const Regi = () => {
   // 2개의 api가 존재 => 하나의 api의 결과에 따라 다른 하나의 호출여부가 결정되므로
@@ -32,14 +33,16 @@ const Regi = () => {
   const enteredPw = useSelector(state => state.auth.enteredPassword);
   const enteredName = useSelector(state => state.auth.enteredName);
   const enteredNation = useSelector(state => state.auth.enteredNation);
+  const enteredNick = useSelector(state => state.auth.enteredNick);
+  const nickValid = useSelector(state => state.auth.nickValid);
 
   // API_KEY
   const FIREBASEAPIKEY = process.env.REACT_APP_FIREBASE_KEY;
 
   // FormValid State
   useEffect(() => {
-    setFormValid(nameValid && emailValid && passwordValid);
-  }, [nameValid, emailValid, passwordValid]);
+    setFormValid(nameValid && emailValid && passwordValid && nickValid);
+  }, [nameValid, emailValid, passwordValid, nickValid]);
 
   // useHTTP config - 회원가입
   const requestConfig = {
@@ -56,12 +59,13 @@ const Regi = () => {
   };
   // useHTTP config - DB
   const DBRequestConfig = {
-    url: `https://gamesearch-3e27f-default-rtdb.firebaseio.com/user.json`,
+    url: `https://gamesearch-3e27f-default-rtdb.firebaseio.com/users.json`,
     method: 'POST',
     body: {
       email: enteredEmail,
       name: enteredName,
       nation: enteredNation,
+      nick: enteredNick,
     },
     headers: {
       'Content-type': 'application/json',
@@ -122,6 +126,7 @@ const Regi = () => {
         {loadingSpinner}
         <NationInput />
         <NameInput />
+        <NicknameInput />
         <EmailInput />
         <PasswordInput />
         <div className={classes.btnCont}>{button}</div>

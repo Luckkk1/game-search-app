@@ -4,10 +4,12 @@ const initialState = {
   nameValid: false,
   emailValid: false,
   passwordValid: false,
+  nickValid: false,
   enteredEmail: '',
   enteredPassword: '',
   enteredName: '',
   enteredNation: '',
+  enteredNick: '',
   token: null,
   isLoggedIn: false,
 };
@@ -16,6 +18,16 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    enteredName(state) {
+      if (localStorage.getItem('name')) {
+        state.enteredName = localStorage.getItem('name');
+      }
+    },
+    enteredNick(state) {
+      if (localStorage.getItem('nick')) {
+        state.enteredNick = localStorage.getItem('nick');
+      }
+    },
     enteredNation(state, action) {
       state.enteredNation = action.payload;
     },
@@ -43,6 +55,14 @@ const authSlice = createSlice({
         state.passwordValid = true;
       }
     },
+    nickValidator(state, action) {
+      state.enteredNick = action.payload.enteredNick;
+      if (action.payload.nickError || !action.payload.enteredNick) {
+        state.nickValid = false;
+      } else {
+        state.nickValid = true;
+      }
+    },
     isLogin(state, action) {
       state.token = action.payload.token;
       localStorage.setItem('token', action.payload.token);
@@ -53,6 +73,8 @@ const authSlice = createSlice({
       state.token = null;
       localStorage.removeItem('token');
       localStorage.removeItem('expire');
+      localStorage.removeItem('name');
+      localStorage.removeItem('nick');
       state.isLoggedIn = false;
     },
     checkLoggedInState(state) {
@@ -66,6 +88,8 @@ const authSlice = createSlice({
         if (remainingTime <= 60000) {
           localStorage.removeItem('token');
           localStorage.removeItem('expire');
+          localStorage.removeItem('name');
+          localStorage.removeItem('nick');
           state.token = null;
           state.isLoggedIn = false;
         }

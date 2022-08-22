@@ -36,6 +36,10 @@ button {
   margin: 3rem;
 }
 
+.error {
+  color: #c62828;
+}
+
 input {
   border-style: none;
 }

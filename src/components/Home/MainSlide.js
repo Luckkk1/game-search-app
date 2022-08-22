@@ -71,7 +71,7 @@ const MainSlide = () => {
         navigation
         effect={'fade'}
         loop={true}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 3000 }}
       >
         <div className={classes.cont}>{slide}</div>
       </Swiper>

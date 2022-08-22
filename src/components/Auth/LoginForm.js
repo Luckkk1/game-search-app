@@ -15,10 +15,17 @@ import LoadingSpinner from '../UI/LoadingSpinner';
 const LoginForm = () => {
   const [loginFormValid, setLoginFormValid] = useState(false);
   const [btnAnimation, setBtnAnimation] = useState(false);
+  const [userData, setUserData] = useState([]);
   const [newErr, setNewErr] = useState(null);
   const { isLoading, error, sendRequest } = useHttp();
+  const {
+    isLoading: fetchUserDataLoading,
+    error: fetchUserDataError,
+    sendRequest: fetchUserData,
+  } = useHttp();
   const enteredEmail = useSelector(state => state.auth.enteredEmail);
   const enteredPw = useSelector(state => state.auth.enteredPassword);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const dispatch = useDispatch();
 
   // API KEY
@@ -36,6 +43,10 @@ const LoginForm = () => {
     headers: {
       'Content-type': 'application/json',
     },
+  };
+
+  const fetchUserDataConfig = {
+    url: `https://gamesearch-3e27f-default-rtdb.firebaseio.com/users.json`,
   };
 
   // 에러 애니메이션 반복용
@@ -56,8 +67,18 @@ const LoginForm = () => {
   const loginSubmitHandler = async e => {
     e.preventDefault();
     await sendRequest(requestConfig, dispatchLoginState, 'home');
+    if (!error) {
+      fetchUserData(fetchUserDataConfig, getUserData);
+    }
   };
-
+  const getUserData = data => {
+    for (let key in data) {
+      if (data[key].email === enteredEmail) {
+        localStorage.setItem('nick', data[key].nick);
+        localStorage.setItem('name', data[key].name);
+      }
+    }
+  };
   // formValid State
   const emailValid = useSelector(state => state.auth.emailValid);
   const passwordValid = useSelector(state => state.auth.passwordValid);
