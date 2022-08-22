@@ -2,11 +2,11 @@ import { useEffect, useState, Fragment, memo } from 'react';
 
 import useFetchList from '../../Hook/useFetchList';
 import GameCard from './GameCard';
-import classes from './HomeGameList.module.css';
+import classes from './GameList.module.css';
 import LoadingSpinner from './LoadingSpinner';
 import LinkBtn from './LinkBtn';
 
-const HomeGameList = props => {
+const GameList = props => {
   const [cards, setCards] = useState([]);
   const {
     isLoading,
@@ -47,6 +47,12 @@ const HomeGameList = props => {
 
   if (success) content = <div className={classes.list}>{gameList}</div>;
 
+  if (!gameList.length) {
+    if (props.check === 'series') {
+      return '';
+    }
+  }
+
   return (
     <section className={classes.games}>
       <Fragment>
@@ -60,4 +66,4 @@ const HomeGameList = props => {
   );
 };
 
-export default memo(HomeGameList);
+export default memo(GameList);

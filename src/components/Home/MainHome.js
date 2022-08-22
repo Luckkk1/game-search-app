@@ -1,5 +1,5 @@
 import classes from './MainHome.module.css';
-import HomeGameList from '../UI/HomeGameList';
+import GameList from '../UI/GameList';
 import MainSlide from './MainSlide';
 import MainRandGame from './MainRandGame';
 import Sidebar from './Sidebar';
@@ -24,7 +24,7 @@ const MainHome = () => {
 
   const gameList = gameSet.map(game => {
     return (
-      <HomeGameList
+      <GameList
         url={game.url}
         link={game.link}
         listName={game.name}

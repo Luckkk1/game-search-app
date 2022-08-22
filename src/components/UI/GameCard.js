@@ -17,7 +17,13 @@ const GameCard = props => {
       <img src={props.url} alt="" />
       <div className={classes.description}>
         <p>{props.name}</p>
-        <span style={{ background: metaColor }}>{props.metacritic}</span>
+        <span
+          style={
+            metaColor ? { background: metaColor } : { background: '#6c757d' }
+          }
+        >
+          {props.metacritic ? props.metacritic : 0}
+        </span>
       </div>
     </Link>
   );

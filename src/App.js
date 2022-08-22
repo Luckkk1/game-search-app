@@ -7,10 +7,11 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import GameForum from './pages/GameForum';
 import GameBrowse from './pages/GameBrowse';
-import GameDetail from './pages/GameDetail';
+import Game_Detail from './pages/Game_Detail';
 import GameForumCont from './pages/GameForumCont';
 import Layout from './components/Layout/Layout';
 import Intro from './pages/Intro';
+import ScrollToTop from './pages/ScrollToTop';
 import { authActions } from './store/auth';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <Layout>
+      <ScrollToTop />
       <Routes>
         <Route path={'*'} element={<Navigate to={'/home'} />} />
         <Route path={'/home'} element={<Home />} />
@@ -29,7 +31,7 @@ const App = () => {
         <Route path={'/forum'} element={<GameForum />} />
         <Route path={'/forum/:contId'} element={<GameForumCont />} />
         <Route path={'/browse'} element={<GameBrowse />} />
-        <Route path={'/app/:gameId'} element={<GameDetail />} />
+        <Route path={'/app/:gameId'} element={<Game_Detail />} />
       </Routes>
     </Layout>
   );
