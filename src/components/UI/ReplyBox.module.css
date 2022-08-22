@@ -23,6 +23,7 @@
 .reply {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 80%;
   height: 100%;
   background-color: #495057;
@@ -62,6 +63,10 @@
   resize: none;
   outline: none;
   border: none;
+}
+
+.text:disabled {
+  cursor: pointer;
 }
 
 .replyList {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import classes from './ReplyBox.module.css';
@@ -12,16 +12,19 @@ const ReplyBox = () => {
   const [enteredInput, setEnteredInput] = useState('');
   const [replyList, setReplyList] = useState({});
   const [update, setUpdate] = useState(false);
+  const params = useParams();
+  const dispatch = useDispatch();
+  const nick = useSelector(state => state.auth.enteredNick);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const navigate = useNavigate();
+
+  // useHttp
   const { isLoading, error, sendRequest } = useHttp();
   const {
     isLoading: fetchLoading,
     error: fetchError,
     sendRequest: fetchReply,
   } = useHttp();
-  const params = useParams();
-  const dispatch = useDispatch();
-  const nick = useSelector(state => state.auth.enteredNick);
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   // FireBase
   const url = `https://gamesearch-3e27f-default-rtdb.firebaseio.com/reply/${params.gameId}.json`;
@@ -71,6 +74,14 @@ const ReplyBox = () => {
       }, 300);
       sendRequest(requestConfig);
       setEnteredInput('');
+    } else if (!isLoggedIn) {
+      navigate('/login');
+    }
+  };
+
+  const navigateToLoginHandler = () => {
+    if (!isLoggedIn) {
+      navigate('/login');
     }
   };
 
@@ -121,8 +132,13 @@ const ReplyBox = () => {
           cols="30"
           rows="5"
           maxLength="500"
-          placeholder="500 characters limit"
+          placeholder={
+            isLoggedIn
+              ? '500 characters limit'
+              : 'Login First (Click Here for Login)'
+          }
           onChange={inputChangeHandler}
+          onClick={navigateToLoginHandler}
           value={enteredInput}
         ></textarea>
         <button onClick={postReplyHandler}>Submit</button>
