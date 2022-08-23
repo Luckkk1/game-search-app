@@ -14,7 +14,7 @@ const GameCard = props => {
 
   return (
     <Link className={classes.card} to={`/app/${props.id}`}>
-      <img src={props.url} alt="" />
+      <img alt="" src={props.url} />
       <div className={classes.description}>
         <p>{props.name}</p>
         <span

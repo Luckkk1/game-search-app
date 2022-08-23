@@ -65,12 +65,7 @@ const GameDetail = () => {
         error={error}
       />
       <div className={classes.list}>
-        <GameList
-          url={seriesUrl}
-          link={`/browse?series=${params.gameId}`}
-          listName={'같은 시리즈'}
-          check={'series'}
-        />
+        <GameList url={seriesUrl} listName={'같은 시리즈'} check={'series'} />
       </div>
       <ReplyBox />
     </main>

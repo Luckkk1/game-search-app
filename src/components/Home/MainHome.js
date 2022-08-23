@@ -16,7 +16,7 @@ const MainHome = () => {
     },
     {
       url: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=1&page_size=5&ordering=-released&dates=2022-01-01,2022-12-31&metacritic=70,100`,
-      link: '/browse?sort=new Gamee',
+      link: '/browse?sort=new Games&page=1',
       name: '최신게임',
       id: 'l2',
     },

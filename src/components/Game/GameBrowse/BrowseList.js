@@ -18,6 +18,7 @@ const BrowseList = props => {
   let urlSet = {
     HotGames: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=${pageNum}&page_size=15&ordering=-metacritic&dates=2012-01-01,2022-12-31`,
     NewGames: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=${pageNum}&page_size=15&ordering=-released&dates=2022-01-01,2022-12-31&metacritic=70,100`,
+    MassivelyMultiplayer: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=${pageNum}&page_size=15&ordering=-metacritic&dates=2012-01-01,2022-12-31&genres=massively-multiplayer`,
   };
 
   let url = urlSet[sortMethod];
