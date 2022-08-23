@@ -1,4 +1,4 @@
-import SwiperCore, { Navigation, Autoplay, EffectFade } from 'swiper';
+import SwiperCore, { Navigation, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -8,7 +8,7 @@ import 'swiper/css/effect-fade';
 import classes from './GameDetailSlide.module.css';
 import LoadingSpinner from '../../UI/LoadingSpinner';
 
-SwiperCore.use([Navigation, EffectFade, Autoplay]);
+SwiperCore.use([Navigation, Autoplay]);
 
 const GameDetailSlide = props => {
   const imgSet = props.imgSet;
@@ -28,8 +28,7 @@ const GameDetailSlide = props => {
       spaceBetween={50}
       slidesPerView={1}
       navigation
-      autoplay={{ delay: 5000 }}
-      effect={'fade'}
+      autoplay={{ delay: 3000 }}
       loop={true}
     >
       <div className={classes.cont}>{slide}</div>

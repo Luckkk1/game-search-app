@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import GameForum from './pages/GameForum';
-import GameBrowse from './pages/GameBrowse';
+import Game_Browse from './pages/Game_Browse';
 import Game_Detail from './pages/Game_Detail';
 import GameForumCont from './pages/GameForumCont';
 import Layout from './components/Layout/Layout';
@@ -30,7 +30,7 @@ const App = () => {
         <Route path={'/file'} element={<Profile />} />
         <Route path={'/forum'} element={<GameForum />} />
         <Route path={'/forum/:contId'} element={<GameForumCont />} />
-        <Route path={'/browse'} element={<GameBrowse />} />
+        <Route path={'/browse/*'} element={<Game_Browse />} />
         <Route path={'/app/:gameId'} element={<Game_Detail />} />
       </Routes>
     </Layout>

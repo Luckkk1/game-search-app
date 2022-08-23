@@ -10,13 +10,13 @@ const MainHome = () => {
   const gameSet = [
     {
       url: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=1&page_size=5&ordering=-metacritic&dates=2012-01-01,2022-12-31`,
-      link: '/browse?sort=fame',
+      link: '/browse?sort=Hot Games&page=1',
       name: '인기게임',
       id: 'l1',
     },
     {
       url: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=1&page_size=5&ordering=-released&dates=2022-01-01,2022-12-31&metacritic=70,100`,
-      link: '/browse?sort=new',
+      link: '/browse?sort=new Gamee',
       name: '최신게임',
       id: 'l2',
     },

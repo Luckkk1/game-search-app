@@ -56,9 +56,11 @@ const GameList = props => {
   return (
     <section className={classes.games}>
       <Fragment>
-        <LinkBtn className={classes.more} to={props.link}>
-          더 보기
-        </LinkBtn>
+        {props.link && (
+          <LinkBtn className={classes.more} to={props.link}>
+            더 보기
+          </LinkBtn>
+        )}
         <h2>{props.listName}</h2>
         {content}
       </Fragment>

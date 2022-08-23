@@ -24,7 +24,7 @@ const GameDetailDescription = props => {
   }
   const genre = genreArr
     ? genreArr.map(e => (
-        <Link to={`/browse?sort=${e}`} key={genreArr.indexOf(e)}>
+        <Link to={`/browse?sort=${e}&page=1`} key={genreArr.indexOf(e)}>
           {e}
         </Link>
       ))
