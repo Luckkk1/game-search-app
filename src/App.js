@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/intro" element={<Intro />} />
           <Route path={'/login'} element={<Login />} />
           <Route path={'/regi'} element={<Register />} />
-          <Route path={'/file'} element={<Profile />} />
+          <Route path={'/profile'} element={<Profile />} />
           <Route path={'/forum'} element={<GameForum />} />
           <Route path={'/forum/:contId'} element={<GameForumCont />} />
           <Route path={'/browse/*'} element={<Game_Browse />} />

@@ -29,7 +29,7 @@ const Header = () => {
   const content = isLoggedIn ? (
     <ul>
       <li>
-        <NavLink to={'/file'}>프로필</NavLink>
+        <NavLink to={'/profile'}>프로필</NavLink>
       </li>
       <li>
         <button onClick={logoutHandler}>로그아웃</button>
