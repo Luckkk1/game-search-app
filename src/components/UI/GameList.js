@@ -15,6 +15,16 @@ const GameList = props => {
     sendRequest: fetchGameList,
   } = useFetchList();
 
+  for (let game of cards) {
+    if (game.img) {
+      game.img =
+        game.img.replace(
+          'https://media.rawg.io',
+          'https://vjk4rlw6.tinifycdn.com'
+        ) + '?resize.width=250&resize.height=160';
+    }
+  }
+
   useEffect(() => {
     fetchGameList(props.url, setCards);
   }, [props.url, fetchGameList]);

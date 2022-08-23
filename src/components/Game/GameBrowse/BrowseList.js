@@ -12,20 +12,34 @@ const BrowseList = props => {
   const RAWGAPIKEY = process.env.REACT_APP_RAWG_KEY;
   const QueryParams = new URLSearchParams(location.search);
   const pageNum = QueryParams.get('page');
+  const sort = props.sort;
   const sortMethod = props.sort.replace(' ', '');
 
   // 인기,최신 게임 set
   let urlSet = {
     HotGames: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=${pageNum}&page_size=15&ordering=-metacritic&dates=2012-01-01,2022-12-31`,
     NewGames: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=${pageNum}&page_size=15&ordering=-released&dates=2022-01-01,2022-12-31&metacritic=70,100`,
-    MassivelyMultiplayer: `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=${pageNum}&page_size=15&ordering=-metacritic&dates=2012-01-01,2022-12-31&genres=massively-multiplayer`,
   };
-
-  let url = urlSet[sortMethod];
-
+  let url;
   // genreSet
-  if (GameGenre.includes(sortMethod)) {
-    url = `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=${pageNum}&page_size=15&ordering=-metacritic&dates=2012-01-01,2022-12-31&genres=${sortMethod.toLowerCase()}`;
+  if (GameGenre.includes(sort)) {
+    let genreParam;
+    switch (sort) {
+      case 'RPG':
+        genreParam = 'role-playing-games-rpg';
+        break;
+      case 'Board Games':
+        genreParam = 'board-games';
+        break;
+      case 'Massively Multiplayer':
+        genreParam = 'massively-multiplayer';
+        break;
+      default:
+        genreParam = sortMethod;
+    }
+    url = `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=${pageNum}&page_size=15&ordering=-metacritic&dates=2012-01-01,2022-12-31&genres=${genreParam.toLowerCase()}`;
+  } else {
+    url = urlSet[sortMethod];
   }
   let pageContent;
 
