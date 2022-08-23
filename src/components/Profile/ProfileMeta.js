@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import metaImg from '../../asset/oasis.jpeg';
 import classes from './ProfileMeta.module.css';
 
-const ProfileMeta = () => {
+const ProfileMeta = props => {
   return (
     <section className={classes.section}>
       <div className={classes.meta}>
         <img src={metaImg} alt="" />
-        <h3>닉네임</h3>
+        <h3>{localStorage.getItem('nick')}</h3>
       </div>
       <div className={classes.recent}>
         <h4>최근 게시물</h4>
