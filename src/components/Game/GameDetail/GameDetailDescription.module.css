@@ -49,6 +49,7 @@
   margin-top: 1em;
   display: flex;
   justify-content: start;
+  align-items: center;
 }
 
 .box a {
@@ -101,10 +102,13 @@
   }
 
   .detailBox a {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .gray {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
