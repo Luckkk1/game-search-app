@@ -9,6 +9,7 @@
   transition: all 200ms linear;
   background-color: #1d3557;
   text-align: center;
+  z-index: 2;
 }
 
 .cardCont:hover {

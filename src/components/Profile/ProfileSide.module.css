@@ -1,5 +1,5 @@
 .section {
-  position: absolute;
+  position: fixed;
   top: 9em;
   left: -7.5em;
   min-width: 9em;
