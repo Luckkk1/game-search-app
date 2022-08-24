@@ -76,6 +76,7 @@ const LoginForm = () => {
       if (data[key].email === enteredEmail) {
         localStorage.setItem('nick', data[key].nick);
         localStorage.setItem('name', data[key].name);
+        localStorage.setItem('key', key);
       }
     }
   };

@@ -75,6 +75,7 @@ const authSlice = createSlice({
       localStorage.removeItem('expire');
       localStorage.removeItem('name');
       localStorage.removeItem('nick');
+      localStorage.removeItem('key');
       state.isLoggedIn = false;
     },
     checkLoggedInState(state) {
@@ -90,6 +91,7 @@ const authSlice = createSlice({
           localStorage.removeItem('expire');
           localStorage.removeItem('name');
           localStorage.removeItem('nick');
+          localStorage.removeItem('key');
           state.token = null;
           state.isLoggedIn = false;
         }

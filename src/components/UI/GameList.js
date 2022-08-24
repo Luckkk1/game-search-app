@@ -1,4 +1,5 @@
 import { useEffect, useState, Fragment, memo } from 'react';
+import useHttp from '../../Hook/useHttp';
 
 import useFetchList from '../../Hook/useFetchList';
 import GameCard from './GameCard';
@@ -7,13 +8,22 @@ import LoadingSpinner from './LoadingSpinner';
 import LinkBtn from './LinkBtn';
 
 const GameList = props => {
+  const [hasGame, setHasGame] = useState([]);
   const [cards, setCards] = useState([]);
+  const [clickCheck, setClickCheck] = useState(false);
+
   const {
     isLoading,
     error,
     success,
     sendRequest: fetchGameList,
   } = useFetchList();
+
+  const {
+    isLoading: getLoading,
+    error: getError,
+    sendRequest: getGameData,
+  } = useHttp();
 
   for (let game of cards) {
     if (game.img) {
@@ -26,8 +36,35 @@ const GameList = props => {
   }
 
   useEffect(() => {
+    getGameData(
+      {
+        url: `https://gamesearch-3e27f-default-rtdb.firebaseio.com/users/${localStorage.getItem(
+          'key'
+        )}/library.json`,
+      },
+      getData
+    );
+  }, [clickCheck]);
+
+  useEffect(() => {
+    getData();
     fetchGameList(props.url, setCards);
   }, [props.url, fetchGameList]);
+
+  const getData = data => {
+    let arr = [];
+    for (let key in data) {
+      arr.push(key);
+    }
+    setHasGame(arr);
+  };
+
+  const clickCheckHandler = () => {
+    setClickCheck(true);
+    setTimeout(() => {
+      setClickCheck(false);
+    }, 300);
+  };
 
   let gameList = cards.map(game => (
     <GameCard
@@ -36,6 +73,9 @@ const GameList = props => {
       key={game.id}
       metacritic={game.metacritic}
       id={game.id}
+      has={hasGame.map(e => +e).includes(game.id) ? true : false}
+      hasCheck={true}
+      onCheckClick={clickCheckHandler}
     />
   ));
 
