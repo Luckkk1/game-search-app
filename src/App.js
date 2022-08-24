@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import React, { Suspense } from 'react';
+import { useSelector } from 'react-redux';
 
 import Layout from './components/Layout/Layout';
 import ScrollToTop from './pages/ScrollToTop';
@@ -20,6 +21,7 @@ const Intro = React.lazy(() => import('./pages/Intro'));
 const App = () => {
   const dispatch = useDispatch();
   dispatch(authActions.checkLoggedInState());
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   return (
     <Suspense
@@ -35,9 +37,9 @@ const App = () => {
           <Route path={'*'} element={<Navigate to={'/home'} />} />
           <Route path={'/home'} element={<Home />} />
           <Route path="/intro" element={<Intro />} />
-          <Route path={'/login'} element={<Login />} />
-          <Route path={'/regi'} element={<Register />} />
-          <Route path={'/profile'} element={<Profile />} />
+          {!isLoggedIn && <Route path={'/login'} element={<Login />} />}
+          {!isLoggedIn && <Route path={'/regi'} element={<Register />} />}
+          {isLoggedIn && <Route path={'/profile'} element={<Profile />} />}
           <Route path={'/forum'} element={<GameForum />} />
           <Route path={'/forum/:contId'} element={<GameForumCont />} />
           <Route path={'/browse/*'} element={<Game_Browse />} />
