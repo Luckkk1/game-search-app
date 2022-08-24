@@ -38,10 +38,14 @@ const Header = () => {
   ) : (
     <ul>
       <li>
-        <NavLink to={'/login'}>로그인</NavLink>
+        <NavLink to={'/login'} className={classes.login}>
+          로그인
+        </NavLink>
       </li>
       <li>
-        <NavLink to={'/regi'}>회원가입</NavLink>
+        <NavLink to={'/regi'} className={classes.regi}>
+          회원가입
+        </NavLink>
       </li>
     </ul>
   );

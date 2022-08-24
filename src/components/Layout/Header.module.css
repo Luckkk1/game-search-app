@@ -172,3 +172,13 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .regi {
+    display: none;
+  }
+
+  .login {
+    margin-right: 0 !important;
+  }
+}
