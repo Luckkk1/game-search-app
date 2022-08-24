@@ -19,7 +19,6 @@
 .card img {
   width: 100%;
   height: 100%;
-
   min-height: 10em;
   max-height: 10em;
   border-radius: 5px;
@@ -67,4 +66,64 @@
 
 .has {
   background-color: #55a630;
+}
+
+@media screen and (max-width: 767px) {
+  .cardCont {
+    height: 14em;
+    max-width: 10em;
+  }
+
+  .card img {
+    min-height: 8em;
+    max-height: 8em;
+  }
+
+  .description p {
+    margin-top: 1em;
+    font-size: 0.9rem;
+  }
+
+  .addBtn {
+    width: 1.5em;
+    height: 1.5em;
+    bottom: 6.5em;
+    right: 0.3em;
+  }
+
+  .description span {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .description p {
+    font-size: 1rem;
+  }
+
+  .cardCont {
+    height: 14em;
+    max-width: 16em;
+  }
+
+  .card img {
+    min-height: 8em;
+    max-height: 8em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .description p {
+    font-size: 1rem;
+  }
+
+  .cardCont {
+    height: 14em;
+    max-width: 16em;
+  }
+
+  .card img {
+    min-height: 8em;
+    max-height: 8em;
+  }
 }

@@ -13,6 +13,7 @@
   padding: 2em 4em;
   border-radius: 5px;
   box-shadow: 0 2px 18px 10px rgb(0 0 0 / 25%);
+  z-index: 1;
 }
 
 .loginForm h2 {
@@ -83,7 +84,7 @@
   width: 25em;
   height: 10em;
   border-radius: 5px;
-  z-index: -1;
+  z-index: 10;
 }
 
 .sideMemo.show {
@@ -140,5 +141,78 @@
   100% {
     opacity: 0;
     transform: translateY(0em);
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1400px) {
+  .sideMemo {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0;
+    top: 0;
+    left: 20em;
+    width: 25em;
+    height: 10em;
+    border-radius: 5px;
+  }
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(7em);
+    }
+
+    60% {
+      opacity: 1;
+      transform: translateY(7em);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0em);
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .loginForm {
+    margin-top: 6em;
+    width: 25em;
+    height: 40em;
+    padding: 2em 4em;
+    border-radius: 5px;
+    box-shadow: 0 2px 18px 10px rgb(0 0 0 / 25%);
+    z-index: 1;
+  }
+
+  .sideMemo {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0;
+    top: 0;
+    left: 2.6em;
+    width: 25em;
+    height: 10em;
+  }
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(7em);
+    }
+
+    60% {
+      opacity: 1;
+      transform: translateY(7em);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0em);
+    }
   }
 }

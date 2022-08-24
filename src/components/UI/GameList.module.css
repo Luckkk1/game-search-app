@@ -36,3 +36,16 @@
   font-size: 1rem;
   margin: 3em;
 }
+
+@media screen and (max-width: 480px) {
+  .games {
+    height: 100%;
+    margin-top: 3em;
+  }
+
+  .more {
+    top: 3em;
+    right: 0;
+    padding: 0.3em 0.5em;
+  }
+}

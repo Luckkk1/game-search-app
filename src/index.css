@@ -43,3 +43,22 @@ button {
 input {
   border-style: none;
 }
+
+.wrapper {
+  height: auto;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 767px) {
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 2rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 1.5rem !important;
+  }
+}

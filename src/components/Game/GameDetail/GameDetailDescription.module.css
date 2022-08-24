@@ -74,3 +74,37 @@
 .gray {
   color: #8d99ae;
 }
+
+@media screen and (max-width: 480px) {
+  .section {
+    width: 100%;
+  }
+
+  .section h2 {
+    font-size: 1.2rem;
+  }
+
+  .detail span {
+    top: 5em;
+    right: 1.5em;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .description {
+    width: 100%;
+    min-height: 15em;
+    margin: 1em;
+    font-size: 1rem;
+    padding: 1em 0;
+    line-height: 1.8em;
+  }
+
+  .detailBox a {
+    font-size: 0.8rem;
+  }
+
+  .gray {
+    font-size: 0.8rem;
+  }
+}

@@ -26,3 +26,23 @@
   display: flex;
   z-index: 0;
 }
+
+@media screen and (max-width: 767px) {
+  .rating {
+    font-size: 1.5rem;
+    top: 3.8em;
+    left: 1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .rating {
+    font-size: 1rem;
+    width: 1040px;
+    position: absolute;
+    top: 4.5em;
+    left: 1.2em;
+    margin: 0;
+    padding: 0;
+  }
+}

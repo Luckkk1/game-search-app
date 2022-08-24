@@ -93,3 +93,86 @@
 .error {
   width: 100%;
 }
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .content {
+    height: 20em;
+  }
+
+  .right {
+    height: 20em;
+  }
+
+  .right h3 {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    margin-top: 2em;
+    font-size: 0.9rem;
+  }
+
+  .link {
+    position: absolute;
+    font-size: 0.8rem;
+  }
+
+  .right button {
+    height: 4em;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .content {
+    height: 30em;
+  }
+
+  .right {
+    height: 30em;
+  }
+
+  .right h3 {
+    font-size: 3rem;
+  }
+
+  .description {
+    font-size: 1.2rem;
+  }
+
+  .link {
+    position: absolute;
+    font-size: 1.3rem;
+  }
+
+  .right button {
+    height: 4em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    height: 15em;
+  }
+
+  .right {
+    height: 15em;
+  }
+
+  .right h3 {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.7rem;
+  }
+
+  .link {
+    font-size: 0.6rem;
+  }
+
+  .right button {
+    height: 2.5em;
+    font-size: 1rem;
+  }
+}

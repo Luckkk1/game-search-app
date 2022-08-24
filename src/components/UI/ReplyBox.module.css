@@ -135,3 +135,75 @@
   bottom: 0;
   right: 1em;
 }
+
+@media screen and (max-width: 767px) {
+  .section {
+    margin-top: 5em;
+    padding: 3em 5%;
+  }
+
+  .textBox {
+    margin-left: 2em;
+  }
+
+  .metaBox .nick {
+    font-size: 0.6rem;
+    font-weight: 400;
+    margin-top: 0.4em;
+    color: #f8f9fa;
+  }
+}
+
+@media screen and (max-width: 617px) {
+  .section {
+    margin-top: 5em;
+    padding: 2em 0;
+  }
+
+  .section h2 {
+    left: 10%;
+  }
+
+  .reply {
+    width: 100%;
+    height: 7em;
+  }
+
+  .reply button {
+    height: 4.9em;
+  }
+
+  .replyList {
+    width: 90%;
+  }
+
+  .reply img {
+    width: 3em;
+    height: 3em;
+    margin-right: 1em;
+  }
+
+  .text {
+    font-size: 0.8rem;
+  }
+
+  .metaBox .nick {
+    font-size: 0.6rem;
+    font-weight: 400;
+    margin-top: 0.4em;
+    color: #f8f9fa;
+  }
+
+  .replyList img {
+    width: 3em;
+    height: 3em;
+  }
+
+  .replyList li p {
+    font-size: 0.9rem;
+  }
+
+  .date {
+    font-size: 0.5em !important;
+  }
+}

@@ -33,3 +33,35 @@
 .error {
   color: #e85d04;
 }
+
+@media screen and (max-width: 767px) {
+  .swiper {
+    max-height: 30em;
+  }
+
+  .swiper img {
+    min-height: 30em;
+  }
+
+  .slideBox {
+    height: 30em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+    width: 100%;
+  }
+
+  .swiper {
+    max-height: 20em;
+  }
+
+  .swiper img {
+    min-height: 20em;
+  }
+
+  .slideBox {
+    height: 20em;
+  }
+}

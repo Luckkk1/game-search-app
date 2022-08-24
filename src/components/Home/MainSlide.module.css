@@ -79,3 +79,86 @@
 }
 
 /* navigation색상은 index.css에 지정되어있음 */
+
+@media screen and (max-width: 767px) {
+  .section {
+    width: 90%;
+    height: 25em;
+  }
+
+  .swiper {
+    max-height: 25em;
+  }
+
+  .swiper img {
+    width: 100%;
+    min-height: 25em;
+  }
+
+  .name {
+    font-size: 1.7rem;
+  }
+
+  .score {
+    top: 6.7em;
+    left: 9.2em;
+    font-size: 0.9rem;
+  }
+
+  .slideButton {
+    height: 2.5em;
+    top: 10em;
+    left: 2em;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .section {
+    width: 90%;
+    height: 35em;
+  }
+
+  .swiper {
+    max-height: 35em;
+  }
+
+  .swiper img {
+    width: 100%;
+    min-height: 35em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+    width: 100%;
+    height: 17em;
+  }
+
+  .swiper {
+    max-height: 20em;
+    border-radius: 5px 0 0 5px;
+  }
+
+  .swiper img {
+    width: 100%;
+    min-height: 18em;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+
+  .score {
+    top: 6.7em;
+    left: 8.5em;
+    font-size: 0.7rem;
+  }
+
+  .slideButton {
+    font-size: 0.6rem;
+    width: 7em;
+    height: 2.5em;
+    top: 10em;
+    left: 2em;
+  }
+}

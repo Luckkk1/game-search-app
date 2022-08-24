@@ -4,7 +4,7 @@
   justify-content: space-evenly;
   background-color: #3c096c;
   width: 100%;
-  max-width: 10em;
+  /* max-width: 10em; */
   height: 30em;
   flex-basis: 10%;
   border-radius: 0 5px 5px 0;
@@ -37,4 +37,40 @@
 
 .icon {
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 767px) {
+  .aside {
+    height: 25em;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .aside {
+    height: 35em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .aside {
+    width: 100%;
+    min-height: 2.3em;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 0 0 5px 5px;
+    z-index: 1;
+  }
+
+  .aside a {
+    width: 25%;
+    height: 100%;
+    font-size: 0.7rem;
+    border-bottom: none;
+    border-right: 1px solid #adb5bd;
+  }
+
+  .aside a:last-child {
+    border-right: none;
+  }
 }

@@ -37,7 +37,6 @@
   background-color: transparent;
   color: #fffcf2;
   font-size: 1.2rem;
-  cursor: pointer;
 }
 
 .drop {
@@ -52,7 +51,7 @@
   height: 25em;
   top: 1em;
   left: -5em;
-  z-index: 2;
+  z-index: 1;
   margin-top: 1em;
   animation: growY 300ms;
   border-radius: 5px;
@@ -77,5 +76,23 @@
 
   100% {
     height: 25em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sort {
+    margin-top: 4em;
+    font-size: 1rem;
+  }
+
+  .drop {
+    width: 10em;
+    height: 25em;
+    left: -3.5em;
+    font-size: 1rem;
+  }
+
+  .dropDown button {
+    font-size: 1rem;
   }
 }

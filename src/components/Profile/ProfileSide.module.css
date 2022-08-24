@@ -42,3 +42,21 @@
 .sideBar li:hover {
   background-color: #27187e;
 }
+
+@media screen and (max-width: 767px) {
+  .section {
+    top: 9em;
+    left: -7em;
+    min-width: 8em;
+    height: 6em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+    top: 9em;
+    left: -7em;
+    min-width: 8em;
+    height: 5em;
+  }
+}
