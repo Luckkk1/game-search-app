@@ -1,4 +1,4 @@
-import { useEffect, useState, Fragment, memo } from 'react';
+import { useEffect, useState, Fragment, memo, useLayoutEffect } from 'react';
 import useHttp from '../../Hook/useHttp';
 
 import useFetchList from '../../Hook/useFetchList';
@@ -35,7 +35,7 @@ const GameList = props => {
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getGameData(
       {
         url: `https://gamesearch-3e27f-default-rtdb.firebaseio.com/users/${localStorage.getItem(
@@ -47,12 +47,11 @@ const GameList = props => {
   }, [clickCheck]);
 
   useEffect(() => {
-    getData();
     fetchGameList(props.url, setCards);
   }, [props.url, fetchGameList]);
 
+  let arr = [];
   const getData = data => {
-    let arr = [];
     for (let key in data) {
       arr.push(key);
     }
@@ -106,12 +105,14 @@ const GameList = props => {
   return (
     <section className={classes.games}>
       <Fragment>
-        {props.link && (
-          <LinkBtn className={classes.more} to={props.link}>
-            더 보기
-          </LinkBtn>
-        )}
-        <h2>{props.listName}</h2>
+        <div className={classes.name}>
+          {props.listName && <h2>{props.listName}</h2>}
+          {props.link && (
+            <LinkBtn className={classes.more} to={props.link}>
+              더 보기
+            </LinkBtn>
+          )}
+        </div>
         {content}
       </Fragment>
     </section>

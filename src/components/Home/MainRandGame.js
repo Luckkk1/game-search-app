@@ -6,7 +6,7 @@ import LoadingSpinner from '../UI/LoadingSpinner';
 import classes from './MainRandGame.module.css';
 
 const MainRandGame = () => {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState({});
   const { isLoading, error, sendRequest: fetchList } = useFetchList();
   const RAWGAPIKEY = process.env.REACT_APP_RAWG_KEY;
   const url = `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&page=1&page-size=50`;
@@ -22,12 +22,21 @@ const MainRandGame = () => {
 
   // 일반배열은 가져오지 않고 랜덤으로 선택된(랜덤) 게임만 가져옴
   useEffect(() => {
-    fetchList(url, '', setSelected);
+    fetchList(url, '', getData);
   }, [url, fetchList]);
 
   // 리로드 버튼 클릭시 다시 선택된(랜덤) 게임 로드
   const reloadGameHandler = () => {
     fetchList(url, '', setSelected);
+  };
+
+  const getData = game => {
+    let resizeImg =
+      game.img.replace(
+        'https://media.rawg.io',
+        'https://vjk4rlw6.tinifycdn.com'
+      ) + '?resize.width=506&resize.height=368';
+    setSelected({ ...game, img: resizeImg });
   };
 
   const errControl = content =>
@@ -54,7 +63,7 @@ const MainRandGame = () => {
   const rightContent = (
     <Fragment>
       {isLoading ? (
-        <div className="centered">
+        <div className={`${classes.loading} centered`}>
           <LoadingSpinner />
         </div>
       ) : (

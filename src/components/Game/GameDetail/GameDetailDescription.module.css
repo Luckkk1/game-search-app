@@ -105,6 +105,10 @@
     font-size: 0.7rem;
   }
 
+  .box {
+    font-size: 0.8rem;
+  }
+
   .gray {
     font-size: 0.7rem;
     display: flex;

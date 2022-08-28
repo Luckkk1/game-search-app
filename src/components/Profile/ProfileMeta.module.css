@@ -33,7 +33,7 @@
   padding: 1em;
 }
 
-.recent h4 {
+.recent h2 {
   color: #fffcf2;
   font-size: 1.25rem;
   margin-left: 0.5em;
@@ -74,7 +74,7 @@
   height: 100%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
   .meta h3 {
     font-size: 0.9rem;
   }
@@ -91,18 +91,28 @@
 @media screen and (max-width: 480px) {
   .section {
     min-height: 10em;
-    padding: 1em 1.5em;
+    padding: 1em 0;
+  }
+
+  .meta {
+    margin-left: 1em;
   }
 
   .meta h3 {
     font-size: 0.7rem;
   }
 
-  .recent h4 {
-    font-size: 0.9rem;
+  .meta img {
+    width: 80%;
+    height: 50%;
   }
 
-  .ul li {
-    font-size: 0.5rem;
+  .recent h2 {
+    font-size: 0.7rem;
+    font-weight: 400;
+  }
+
+  .ul li a {
+    font-size: 0.1rem;
   }
 }

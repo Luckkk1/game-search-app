@@ -152,27 +152,50 @@
 
 @media screen and (max-width: 480px) {
   .content {
-    height: 15em;
+    height: 28em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    margin-left: 0.3em;
+    margin-top: 3em;
+  }
+
+  .left img {
+    border-radius: 5px 5px 0 0;
   }
 
   .right {
-    height: 15em;
+    height: 13em;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em 0;
   }
 
   .right h3 {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .description {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
 
   .link {
+    position: relative;
+    align-self: flex-end;
     font-size: 0.6rem;
+    bottom: 1.5em;
+    right: 0.9em;
+    margin-top: 2em;
+    width: 6em;
   }
 
   .right button {
     height: 2.5em;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    outline: none;
+    border-radius: 0 0 5px 5px;
   }
 }

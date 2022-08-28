@@ -11,7 +11,7 @@ const ProfileMeta = props => {
         <h3>{localStorage.getItem('nick')}</h3>
       </div>
       <div className={classes.recent}>
-        <h4>최근 게시물</h4>
+        <h2>최근 게시물</h2>
         <ul className={classes.ul}>
           <li>
             <Link to={'/'}>안녕하세요 잘 부탁 드립니다.</Link>

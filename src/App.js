@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import Layout from './components/Layout/Layout';
@@ -20,8 +20,11 @@ const Intro = React.lazy(() => import('./pages/Intro'));
 
 const App = () => {
   const dispatch = useDispatch();
-  dispatch(authActions.checkLoggedInState());
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
+  useEffect(() => {
+    dispatch(authActions.checkLoggedInState());
+  }, []);
 
   return (
     <Suspense

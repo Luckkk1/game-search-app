@@ -5,11 +5,8 @@
 }
 
 .more {
-  position: absolute;
   font-weight: 400;
   font-size: 0.95rem;
-  top: 3.3em;
-  right: 0;
   padding: 0.3em 0.5em;
 }
 
@@ -22,6 +19,12 @@
   color: white;
   text-align: start;
   margin-top: 2em;
+}
+
+.name {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .list {
@@ -41,12 +44,15 @@
   .games {
     height: 100%;
     margin-top: 3em;
+    padding: 0 5%;
+  }
+
+  .games h2 {
+    font-size: 1.4rem;
   }
 
   .more {
-    top: 3em;
-    right: 0;
-    padding: 0.3em 0.5em;
+    font-size: 0.8rem;
   }
 }
 

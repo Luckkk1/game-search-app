@@ -42,7 +42,6 @@ const GameCard = props => {
   };
 
   let has = props.has;
-  console.log(has);
   const addLibraryHandler = () => {
     props.onCheckClick(true);
     if (has) {
@@ -60,10 +59,25 @@ const GameCard = props => {
   if (meta >= 60 && meta < 80) metaColor = '#70e000';
   if (meta >= 80 && meta < 90) metaColor = '#38b000';
   if (meta >= 90 && meta <= 100) metaColor = '#028fde';
+
+  const buttonContent =
+    props.hasCheck && isLoggedIn ? (
+      <button
+        className={has ? `${classes.addBtn} ${classes.has} ` : classes.addBtn}
+        onClick={addLibraryHandler}
+      >
+        {has ? 'v' : '+'}
+      </button>
+    ) : (
+      ''
+    );
+
   return (
     <div className={classes.cardCont}>
       <Link className={classes.card} to={`/app/${props.id}`}>
-        <img alt="" src={props.url} />
+        <div className={classes.imgBox}>
+          <img alt="" src={props.url} />
+        </div>
         <div className={classes.description}>
           <p>{props.name}</p>
           <span
@@ -75,16 +89,7 @@ const GameCard = props => {
           </span>
         </div>
       </Link>
-      {props.hasCheck && isLoggedIn ? (
-        <button
-          className={has ? `${classes.addBtn} ${classes.has} ` : classes.addBtn}
-          onClick={addLibraryHandler}
-        >
-          {has ? 'v' : '+'}
-        </button>
-      ) : (
-        ''
-      )}
+      {buttonContent}
     </div>
   );
 };

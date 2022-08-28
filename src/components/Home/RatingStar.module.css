@@ -27,7 +27,7 @@
   z-index: 0;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
   .rating {
     font-size: 1.5rem;
     top: 3.8em;
@@ -37,8 +37,8 @@
 
 @media screen and (max-width: 480px) {
   .rating {
+    width: 680px;
     font-size: 1rem;
-    width: 1040px;
     position: absolute;
     top: 4.5em;
     left: 1.2em;
