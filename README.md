@@ -2,6 +2,8 @@
 
 구성원 : 개인
 
+LIVE : https://gamesearch-3e27f.web.app/home 
+
 [기술적인 부분]
 
 1. ```Router```를 이용한 SPA 구현
