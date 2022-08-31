@@ -107,6 +107,12 @@
   }
 }
 
+@media screen and (min-width: 767px) and (max-width: 1700px) {
+  .description p {
+    margin-bottom: 1em;
+  }
+}
+
 @media screen and (min-width: 1700px) {
   .description p {
     font-size: 1rem;

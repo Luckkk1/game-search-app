@@ -14,10 +14,10 @@ const ProfileMeta = props => {
         <h2>최근 게시물</h2>
         <ul className={classes.ul}>
           <li>
-            <Link to={'/'}>안녕하세요 잘 부탁 드립니다.</Link>
+            <Link to={'/'}>*미구현 더미 데이터</Link>
           </li>
           <li>
-            <Link to={'/'}>게임 추천좀 해주세요</Link>
+            <Link to={'/'}>안녕하세요 잘 부탁 드립니다.</Link>
           </li>
           <li>
             <Link to={'/'}>이 게임 재밌나요?</Link>

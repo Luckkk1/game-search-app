@@ -9,12 +9,13 @@
 }
 .section h2 {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin-top: 1.5em;
   font-size: 1.8rem;
 }
 
 .detail {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -27,8 +28,8 @@
   position: absolute;
   color: white;
   padding: 0.3em 0.6em;
-  top: 2em;
-  right: 2.5em;
+  top: 4em;
+  right: 1.5em;
   border-radius: 5px;
   font-size: 1.2rem;
 }
@@ -48,7 +49,7 @@
 .box {
   margin-top: 1em;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -76,6 +77,19 @@
   color: #8d99ae;
 }
 
+@media screen and (max-width: 680px) {
+  .section h2 {
+    font-size: 1.2rem;
+  }
+
+  .detail span {
+    top: 6.5em;
+    right: -1em;
+    border-radius: 5px;
+    font-size: 0.8rem;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .section {
     width: 100%;
@@ -83,13 +97,6 @@
 
   .section h2 {
     font-size: 1.2rem;
-  }
-
-  .detail span {
-    top: 5em;
-    right: 1.5em;
-    border-radius: 5px;
-    font-size: 1rem;
   }
 
   .description {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import useHttp from '../../Hook/useHttp';
 import { authActions } from '../../store/auth';
 
@@ -70,6 +70,9 @@ const LoginForm = () => {
     if (!error) {
       fetchUserData(fetchUserDataConfig, getUserData);
     }
+    setTimeout(() => {
+      setNewErr(null);
+    }, 5000);
   };
   const getUserData = data => {
     for (let key in data) {
@@ -102,7 +105,10 @@ const LoginForm = () => {
       <LoadingSpinner />
     </div>
   ) : (
-    <h2>GameBot</h2>
+    <Fragment>
+      <h2>GameBot</h2>
+      <p className={classes.test}>테스트 계정: test1@test.com // test!@#</p>
+    </Fragment>
   );
 
   const button = loginFormValid ? (

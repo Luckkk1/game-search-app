@@ -12,17 +12,19 @@
   border-radius: 5px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
   .slideBox {
     height: 25em;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 680px) {
   .main {
     padding: 0;
   }
+}
 
+@media screen and (max-width: 480px) {
   .slideBox {
     display: flex;
     flex-direction: column;

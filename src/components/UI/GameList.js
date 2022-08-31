@@ -1,4 +1,5 @@
-import { useEffect, useState, Fragment, memo, useLayoutEffect } from 'react';
+import { useState, Fragment, memo, useLayoutEffect, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import useHttp from '../../Hook/useHttp';
 
 import useFetchList from '../../Hook/useFetchList';
@@ -35,6 +36,14 @@ const GameList = props => {
     }
   }
 
+  let arr = [];
+  const getData = data => {
+    for (let key in data) {
+      arr.push(key);
+    }
+    setHasGame(arr);
+  };
+
   useLayoutEffect(() => {
     getGameData(
       {
@@ -44,19 +53,11 @@ const GameList = props => {
       },
       getData
     );
-  }, [clickCheck]);
+  }, [clickCheck, cards]);
 
   useEffect(() => {
     fetchGameList(props.url, setCards);
   }, [props.url, fetchGameList]);
-
-  let arr = [];
-  const getData = data => {
-    for (let key in data) {
-      arr.push(key);
-    }
-    setHasGame(arr);
-  };
 
   const clickCheckHandler = () => {
     setClickCheck(true);

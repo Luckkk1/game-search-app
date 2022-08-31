@@ -10,7 +10,7 @@
   margin-top: 6em;
   max-width: 30em;
   width: 100%;
-  height: 40em;
+  height: 44em;
   padding: 2em 4em;
   border-radius: 5px;
   box-shadow: 0 2px 18px 10px rgb(0 0 0 / 25%);
@@ -41,6 +41,10 @@
 .loginForm p {
   margin-top: 2em;
   font-weight: 300;
+}
+
+.test {
+  color: white;
 }
 
 .btnCont button:disabled {

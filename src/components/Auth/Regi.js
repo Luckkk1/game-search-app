@@ -81,6 +81,9 @@ const Regi = () => {
       if (!error) {
         DBSendRequest(DBRequestConfig);
       }
+      setTimeout(() => {
+        setRegisterError(null);
+      }, 5000);
     });
   };
 

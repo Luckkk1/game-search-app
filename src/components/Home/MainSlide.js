@@ -28,14 +28,12 @@ const MainSlide = () => {
 
   // 개별슬라이드 요소
   const slide = gameList.map(game => {
-    const ratingScroe = `${game.rating * 2}%`;
     const link = `/app/${game.id}`;
     return (
       <SwiperSlide key={game.id}>
         <Link to={link}>
           <h3 className={classes.name}>{game.name}</h3>
-          <RatingStar score={ratingScroe} />
-          <p className={classes.score}>{game.rating}</p>
+          <RatingStar score={game.rating} />
           <img src={game.img} alt="" />
           <div className={classes.shadow}></div>
           <button className={classes.slideButton}>자세히 보기</button>

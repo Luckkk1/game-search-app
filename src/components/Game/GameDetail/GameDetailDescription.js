@@ -108,8 +108,8 @@ const GameDetailDescription = props => {
     <section className={classes.section}>
       <h2>{title}</h2>
       <div className={classes.detail}>
-        <span style={{ background: metaColor }}>{meta ? meta : 0}</span>
         <div className={classes.detailBox}>
+          <span style={{ background: metaColor }}>{meta ? meta : 0}</span>
           <div className={classes.box}>{genreContent}</div>
           <div className={classes.box}>{websiteContent}</div>
           <div className={classes.box}>{releasedContent}</div>

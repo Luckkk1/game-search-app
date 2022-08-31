@@ -34,7 +34,7 @@
   color: #e85d04;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
   .swiper {
     max-height: 30em;
   }
@@ -48,7 +48,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 680px) {
   .section {
     width: 100%;
   }

@@ -66,7 +66,7 @@
 }
 
 .sideMemo {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   position: absolute;
@@ -83,6 +83,7 @@
 }
 
 .sideMemo.show {
+  display: flex;
   animation: fadeInOut 5s;
 }
 
