@@ -81,13 +81,6 @@ const GameList = props => {
 
   let content;
 
-  if (error)
-    content = (
-      <div className="centered">
-        <p className={classes.error}>불러오기가 실패했습니다.</p>
-      </div>
-    );
-
   if (isLoading)
     content = (
       <div className="centered">
@@ -95,7 +88,13 @@ const GameList = props => {
       </div>
     );
 
-  if (success) content = <div className={classes.list}>{gameList}</div>;
+  if (success) content = <div className={classes.list}>{gameList} </div>;
+  if (error)
+    content = (
+      <div className="centered">
+        <p className={classes.error}>불러오기가 실패했습니다.</p>
+      </div>
+    );
 
   if (!gameList.length) {
     if (props.check === 'series') {

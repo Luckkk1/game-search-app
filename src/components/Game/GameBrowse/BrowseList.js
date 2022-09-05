@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 
 import GameList from '../../UI/GameList';
 import { GameGenre } from './GameGenre';
@@ -12,8 +12,9 @@ const BrowseList = props => {
   const RAWGAPIKEY = process.env.REACT_APP_RAWG_KEY;
   const QueryParams = new URLSearchParams(location.search);
   const pageNum = QueryParams.get('page');
+  const searchParams = QueryParams.get('q');
   const sort = props.sort;
-  const sortMethod = props.sort.replace(' ', '');
+  const sortMethod = searchParams ? '' : props.sort.replace(' ', '');
 
   // 인기,최신 게임 set
   let urlSet = {
@@ -48,37 +49,37 @@ const BrowseList = props => {
     return +pageNum === +n ? <b style={{ color: 'white' }}>{n}</b> : n;
   };
 
+  const setLink = n => {
+    return searchParams
+      ? `?q=${searchParams}&page=${n}`
+      : `?sort=${props.sort}&page=${n}`;
+  };
+
   // 1~3 넘버링 Set
   if (pageNum < 4) {
     pageContent = (
       <Fragment>
-        <Link to={`?sort=${props.sort}&page=1`}>{boldNum(1)}</Link>
-        <Link to={`?sort=${props.sort}&page=2`}>{boldNum(2)}</Link>
-        <Link to={`?sort=${props.sort}&page=3`}>{boldNum(3)}</Link>
-        <Link to={`?sort=${props.sort}&page=4`}>{boldNum(4)}</Link>
+        <Link to={setLink(1)}>{boldNum(1)}</Link>
+        <Link to={setLink(2)}>{boldNum(2)}</Link>
+        <Link to={setLink(3)}>{boldNum(3)}</Link>
+        <Link to={setLink(4)}>{boldNum(4)}</Link>
         <p>...</p>
-        <Link to={`?sort=${props.sort}&page=10`}>10</Link>
+        <Link to={setLink(10)}>10</Link>
       </Fragment>
     );
   }
-
+  setLink();
   // 4~7 넘버링 Set
   if (pageNum >= 4 && pageNum < 8) {
     pageContent = (
       <Fragment>
-        <Link to={`?sort=${props.sort}&page=1`}>1</Link>
+        <Link to={setLink(1)}>1</Link>
         <p>...</p>
-        <Link to={`?sort=${props.sort}&page=${+pageNum - 1}`}>
-          {+pageNum - 1}
-        </Link>
-        <Link to={`?sort=${props.sort}&page=${+pageNum}`}>
-          {boldNum(+pageNum)}
-        </Link>
-        <Link to={`?sort=${props.sort}&page=${+pageNum + 1}`}>
-          {+pageNum + 1}
-        </Link>
+        <Link to={setLink(+pageNum - 1)}>{+pageNum - 1}</Link>
+        <Link to={setLink(+pageNum)}>{boldNum(+pageNum)}</Link>
+        <Link to={setLink(+pageNum + 1)}>{+pageNum + 1}</Link>
         <p>...</p>
-        <Link to={`?sort=${props.sort}&page=10`}>10</Link>
+        <Link to={setLink(10)}>10</Link>
       </Fragment>
     );
   }
@@ -87,12 +88,12 @@ const BrowseList = props => {
   if (pageNum >= 8) {
     pageContent = (
       <Fragment>
-        <Link to={`?sort=${props.sort}&page=1`}>1</Link>
+        <Link to={setLink(1)}>1</Link>
         <p>...</p>
-        <Link to={`?sort=${props.sort}&page=7`}>{boldNum(7)}</Link>
-        <Link to={`?sort=${props.sort}&page=8`}>{boldNum(8)}</Link>
-        <Link to={`?sort=${props.sort}&page=9`}>{boldNum(9)}</Link>
-        <Link to={`?sort=${props.sort}&page=10`}>{boldNum(10)}</Link>
+        <Link to={setLink(7)}>{boldNum(7)}</Link>
+        <Link to={setLink(8)}>{boldNum(8)}</Link>
+        <Link to={setLink(9)}>{boldNum(9)}</Link>
+        <Link to={setLink(10)}>{boldNum(10)}</Link>
       </Fragment>
     );
   }
@@ -119,6 +120,15 @@ const BrowseList = props => {
     </Link>
   ));
 
+  // search 리스트
+
+  let searchUrl = `https://api.rawg.io/api/games?key=${RAWGAPIKEY}&search=${searchParams}&page=${pageNum}&page_size=15`;
+
+  let gameList = searchParams ? (
+    <GameList url={searchUrl} />
+  ) : (
+    <GameList url={url} />
+  );
   return (
     <section className={classes.section}>
       <div className={classes.sort}>
@@ -133,9 +143,7 @@ const BrowseList = props => {
           {showGenre ? <div className={classes.drop}>{genres}</div> : ''}
         </div>
       </div>
-      <div className={classes.list}>
-        <GameList url={url} />
-      </div>
+      <div className={classes.list}>{gameList}</div>
       <div className={classes.pageNum}>{pageContent}</div>
     </section>
   );

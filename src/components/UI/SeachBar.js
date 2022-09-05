@@ -10,7 +10,7 @@ const SearchBar = props => {
   const searchSubmitHandler = e => {
     e.preventDefault();
     const enteredSearch = inputRef.current.value;
-    navigate(`/browse?q=${enteredSearch}`);
+    navigate(`/browse?q=${enteredSearch}&page=1`);
     inputRef.current.value = '';
   };
 
