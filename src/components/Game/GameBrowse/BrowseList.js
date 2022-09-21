@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Fragment, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import GameList from '../../UI/GameList';
 import { GameGenre } from './GameGenre';
@@ -15,6 +16,7 @@ const BrowseList = props => {
   const searchParams = QueryParams.get('q');
   const sort = props.sort;
   const sortMethod = searchParams ? '' : props.sort.replace(' ', '');
+  const gameListErrorState = useSelector(state => state.game.gameListError);
 
   // 인기,최신 게임 set
   let urlSet = {
@@ -43,6 +45,7 @@ const BrowseList = props => {
     url = urlSet[sortMethod];
   }
   let pageContent;
+  let searchPageContent;
 
   // 현재페이지 넘버 볼드화
   const boldNum = n => {
@@ -68,7 +71,7 @@ const BrowseList = props => {
       </Fragment>
     );
   }
-  setLink();
+
   // 4~7 넘버링 Set
   if (pageNum >= 4 && pageNum < 8) {
     pageContent = (
@@ -94,6 +97,29 @@ const BrowseList = props => {
         <Link to={setLink(8)}>{boldNum(8)}</Link>
         <Link to={setLink(9)}>{boldNum(9)}</Link>
         <Link to={setLink(10)}>{boldNum(10)}</Link>
+      </Fragment>
+    );
+  }
+
+  // search상태의 넘버링
+  if (pageNum === 1) {
+    searchPageContent = (
+      <Fragment>
+        <Link to={setLink(1)}>&lt;</Link>
+        {boldNum(+pageNum)}
+        <Link to={setLink(2)}>&gt;</Link>
+      </Fragment>
+    );
+  } else {
+    searchPageContent = (
+      <Fragment>
+        <Link to={setLink(+pageNum - 1)}>&lt;</Link>
+        {boldNum(+pageNum)}
+        <Link
+          to={gameListErrorState ? setLink(+pageNum) : setLink(+pageNum + 1)}
+        >
+          &gt;
+        </Link>
       </Fragment>
     );
   }
@@ -129,6 +155,7 @@ const BrowseList = props => {
   ) : (
     <GameList url={url} />
   );
+
   return (
     <section className={classes.section}>
       <div className={classes.sort}>
@@ -144,7 +171,9 @@ const BrowseList = props => {
         </div>
       </div>
       <div className={classes.list}>{gameList}</div>
-      <div className={classes.pageNum}>{pageContent}</div>
+      <div className={classes.pageNum}>
+        {searchParams ? searchPageContent : pageContent}
+      </div>
     </section>
   );
 };

@@ -1,5 +1,6 @@
-import { useState, Fragment, memo, useLayoutEffect, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, Fragment, memo, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import useHttp from '../../Hook/useHttp';
 
 import useFetchList from '../../Hook/useFetchList';
@@ -7,11 +8,18 @@ import GameCard from './GameCard';
 import classes from './GameList.module.css';
 import LoadingSpinner from './LoadingSpinner';
 import LinkBtn from './LinkBtn';
+import { gameSliceActions } from '../../store/game';
+
+let checker = false;
 
 const GameList = props => {
   const [hasGame, setHasGame] = useState([]);
   const [cards, setCards] = useState([]);
   const [clickCheck, setClickCheck] = useState(false);
+  const location = useLocation();
+  const QueryParams = new URLSearchParams(location.search);
+  const searchParams = QueryParams.get('q');
+  const dispatch = useDispatch();
 
   const {
     isLoading,
@@ -44,7 +52,7 @@ const GameList = props => {
     setHasGame(arr);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getGameData(
       {
         url: `https://gamesearch-3e27f-default-rtdb.firebaseio.com/users/${localStorage.getItem(
@@ -81,26 +89,30 @@ const GameList = props => {
 
   let content;
 
+  if (success) {
+    dispatch(gameSliceActions.setErrorState(false));
+    content = <div className={classes.list}>{gameList} </div>;
+  }
+
+  if (error) {
+    dispatch(gameSliceActions.setErrorState(true));
+    content = (
+      <div className="centered">
+        <p className={classes.error}>
+          {searchParams
+            ? '검색된 결과가 없습니다.'
+            : '불러오기가 실패했습니다.'}
+        </p>
+      </div>
+    );
+  }
+
   if (isLoading)
     content = (
       <div className="centered">
         <LoadingSpinner className="centered" />
       </div>
     );
-
-  if (success) content = <div className={classes.list}>{gameList} </div>;
-  if (error)
-    content = (
-      <div className="centered">
-        <p className={classes.error}>불러오기가 실패했습니다.</p>
-      </div>
-    );
-
-  if (!gameList.length) {
-    if (props.check === 'series') {
-      return '';
-    }
-  }
 
   return (
     <section className={classes.games}>

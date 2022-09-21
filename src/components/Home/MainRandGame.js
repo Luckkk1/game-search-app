@@ -31,12 +31,12 @@ const MainRandGame = () => {
   };
 
   const getData = game => {
-    let resizeImg =
-      game.img.replace(
-        'https://media.rawg.io',
-        'https://vjk4rlw6.tinifycdn.com'
-      ) + '?resize.width=506&resize.height=368';
-    setSelected({ ...game, img: resizeImg });
+    // let resizeImg =
+    //   game.img.replace(
+    //     'https://media.rawg.io',
+    //     'https://vjk4rlw6.tinifycdn.com'
+    //   ) + '?resize.width=506&resize.height=368';
+    setSelected(game);
   };
 
   const errControl = content =>

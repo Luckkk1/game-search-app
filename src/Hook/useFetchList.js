@@ -7,7 +7,6 @@ const useFetchList = () => {
 
   const sendRequest = useCallback(async (url, applyList, randList) => {
     setIsLoading(true);
-    setError(null);
     try {
       const res = await fetch(url, {
         method: 'GET',
@@ -16,6 +15,7 @@ const useFetchList = () => {
       if (!res.ok) {
         throw new Error('Request Failed');
       }
+
       const data = await res.json();
 
       const gameList = data.results;
@@ -30,12 +30,14 @@ const useFetchList = () => {
           rating: game.rating,
         });
       }
+
       if (randList) {
         randList(listData[Math.floor(Math.random() * 20)]);
       }
       if (applyList) {
         applyList(listData);
       }
+      setError(null);
       setSuccess(true);
     } catch (err) {
       setError(err.message);
