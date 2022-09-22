@@ -1,0 +1,30 @@
+.writing {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1px solid #3c096c;
+  color: #d9d9d9;
+  height: 4rem;
+}
+
+.writing p {
+  border-right: 1px solid #3c096c;
+}
+
+.writing p:last-child {
+  border-right: none;
+}
+
+.writing .textNum {
+  flex-basis: 10%;
+}
+
+.writing .title {
+  flex-basis: 60%;
+}
+.writing .nick {
+  flex-basis: 20%;
+}
+.writing .date {
+  flex-basis: 10%;
+}

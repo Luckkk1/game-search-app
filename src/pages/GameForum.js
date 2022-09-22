@@ -1,5 +1,7 @@
+import ForumMain from '../components/Forum/ForumMain';
+
 const GameForum = () => {
-  return <p>GameForum</p>;
+  return <ForumMain />;
 };
 
 export default GameForum;

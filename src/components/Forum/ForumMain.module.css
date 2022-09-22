@@ -1,0 +1,13 @@
+.forumMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3.5em;
+  padding: 0 5%;
+}
+
+.forumMain h2 {
+  color: #d9d9d9;
+  font-size: 2rem;
+  margin-top: 1.5em;
+}
