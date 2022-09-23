@@ -1,5 +1,6 @@
 import useHttp from '../../Hook/useHttp';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import classes from './AddWritingForm.module.css';
@@ -10,6 +11,7 @@ const AddWritingForm = () => {
   const [enteredText, setEnteredText] = useState('');
   const [formCheck, setFormCheck] = useState(true);
   const navigate = useNavigate();
+  const writesLength = useSelector(state => state.forum.writesLength);
 
   const date = new Date();
   const krTime = date.getTime();
@@ -24,7 +26,8 @@ const AddWritingForm = () => {
       date: krDate,
       time: krTime,
       nick: localStorage.getItem('nick'),
-      key: localStorage.getItem('key'),
+      id: localStorage.getItem('key'),
+      textNum: writesLength + 1,
     },
     headers: {
       'Content-type': 'application/json',

@@ -5,7 +5,3 @@
   margin-top: 3em;
   border-radius: 5px;
 }
-
-.writingList div:last-child {
-  border-bottom: none;
-}
