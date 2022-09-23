@@ -32,6 +32,16 @@
   padding: 0.5em 0.5em;
 }
 
+.inputHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.errorMsg {
+  text-align: center;
+  color: #e63946;
+}
+
 .writeForm button {
   align-self: center;
   width: 8em;
@@ -40,4 +50,5 @@
   background-color: #3c096c;
   color: #d9d9d9;
   border-radius: 5px;
+  cursor: pointer;
 }
