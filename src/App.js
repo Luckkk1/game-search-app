@@ -16,6 +16,7 @@ const GameForum = React.lazy(() => import('./pages/GameForum'));
 const Game_Browse = React.lazy(() => import('./pages/Game_Browse'));
 const Game_Detail = React.lazy(() => import('./pages/Game_Detail'));
 const GameForumCont = React.lazy(() => import('./pages/GameForumCont'));
+const AddGameForum = React.lazy(() => import('./pages/AddGameForum'));
 const Intro = React.lazy(() => import('./pages/Intro'));
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
           {isLoggedIn && <Route path={'/profile'} element={<Profile />} />}
           <Route path={'/forum'} element={<GameForum />} />
           <Route path={'/forum/:contId'} element={<GameForumCont />} />
+          <Route path={'/forum/add'} element={<AddGameForum />} />
           <Route path={'/browse/*'} element={<Game_Browse />} />
           <Route path={'/app/:gameId'} element={<Game_Detail />} />
         </Routes>

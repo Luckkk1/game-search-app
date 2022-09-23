@@ -1,0 +1,26 @@
+.addWriting {
+  margin: 0 10%;
+  margin-top: 3.5em;
+}
+
+.addWriting h2 {
+  margin-top: 3em;
+  font-size: 2rem;
+  color: #d9d9d9;
+}
+
+.addWriting .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header button {
+  height: 2.5em;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #d9d9d9;
+  color: #d9d9d9;
+  padding: 0.25em 1em;
+  border-radius: 5px;
+}
