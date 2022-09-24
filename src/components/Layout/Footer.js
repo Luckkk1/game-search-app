@@ -18,7 +18,7 @@ const Footer = () => {
             <Link to={'/browse?sort=Hot%20Games&page=1'}>Game Browse</Link>
           </li>
           <li>
-            <Link to={'/forum'}>Forum</Link>
+            <Link to={'/forum?page=1'}>Forum</Link>
           </li>
         </ul>
       </div>
