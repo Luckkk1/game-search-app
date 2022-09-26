@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import ForumHeader from './ForumHeader';
 import Writing from './Writing';
+import LoadingSpinner from '../UI/LoadingSpinner';
 import classes from './WritingList.module.css';
 
 const WritingList = () => {
@@ -64,7 +65,7 @@ const WritingList = () => {
     );
   }, [getWritingData]);
 
-  const content =
+  let content =
     writes.length > 0
       ? writes[pageNum - 1].map(e => {
           return <Writing data={e} key={e.textId} />;
@@ -105,6 +106,14 @@ const WritingList = () => {
         </Link>
       </Fragment>
     );
+  }
+
+  if (error) {
+    content = <p className="error centered">{error}</p>;
+  }
+
+  if (isLoading) {
+    content = <LoadingSpinner className="centered" />;
   }
 
   return (
