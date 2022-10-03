@@ -22,7 +22,9 @@ const ForumMain = () => {
 
   const getLength = w => {
     let count = 0;
-    for (let key in w) count++;
+    for (let key in w) {
+      count++;
+    }
     dispatch(forumSliceActions.getWritesLength(count));
   };
   return (

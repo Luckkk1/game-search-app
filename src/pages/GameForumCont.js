@@ -1,4 +1,6 @@
+import ForumContent from '../components/Forum/ForumContent';
+
 const GameForumCont = () => {
-  return <p>Content</p>;
+  return <ForumContent />;
 };
 export default GameForumCont;

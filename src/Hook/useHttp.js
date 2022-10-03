@@ -7,7 +7,6 @@ const useHttp = () => {
   const [success, setSuccess] = useState(false);
 
   const navigator = useNavigate();
-
   const sendRequest = useCallback(async (requestConfig, applyData, link) => {
     setIsLoading(true);
     setError(null);

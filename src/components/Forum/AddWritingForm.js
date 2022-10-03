@@ -12,7 +12,6 @@ const AddWritingForm = () => {
   const [formCheck, setFormCheck] = useState(true);
   const navigate = useNavigate();
   const writesLength = useSelector(state => state.forum.writesLength);
-
   const date = new Date();
   const krTime = date.getTime();
   const krDate = new Intl.DateTimeFormat('kr').format(date);
@@ -49,6 +48,8 @@ const AddWritingForm = () => {
       navigate('/forum?page=1');
     }
   }, [error, success, navigate, formCheck]);
+
+  useEffect(() => {});
 
   const titleChangeHandler = e => {
     setEnteredTitle(e.target.value);

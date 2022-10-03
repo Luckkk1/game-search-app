@@ -1,0 +1,45 @@
+.contentBox {
+  background-color: #343a40;
+  height: 50em;
+  margin: 10em 7em 0em;
+  padding: 2em;
+  border-radius: 5px;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bar .title {
+  display: flex;
+  align-items: center;
+  background-color: #d9d9d9;
+  height: 1.5em;
+  font-size: 1.7rem;
+  padding: 0.5em;
+  border-radius: 5px;
+  font-weight: 400;
+  flex-basis: 90%;
+}
+
+.bar .meta {
+  display: flex;
+  flex-direction: column;
+  color: #d9d9d9;
+}
+
+.meta p:first-child {
+}
+
+.contentBox .content {
+  background-color: #d9d9d9;
+  margin-top: 2em;
+  height: 88%;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 1em;
+  white-space: pre-wrap;
+  font-weight: 400;
+}
