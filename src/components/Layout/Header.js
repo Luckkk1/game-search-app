@@ -29,22 +29,22 @@ const Header = () => {
   const content = isLoggedIn ? (
     <ul>
       <li>
-        <NavLink to={'/profile'}>프로필</NavLink>
+        <NavLink to={'/profile'}>Profile</NavLink>
       </li>
       <li>
-        <button onClick={logoutHandler}>로그아웃</button>
+        <button onClick={logoutHandler}>Logout</button>
       </li>
     </ul>
   ) : (
     <ul>
       <li>
         <NavLink to={'/login'} className={classes.login}>
-          로그인
+          Login
         </NavLink>
       </li>
       <li>
         <NavLink to={'/regi'} className={classes.regi}>
-          회원가입
+          Register
         </NavLink>
       </li>
     </ul>

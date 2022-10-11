@@ -71,13 +71,13 @@ const MainRandGame = () => {
           <h3>{selected.name}</h3>
           <div className={classes.description}>
             <div className={classes.meta}>
-              이 게임은 유저로부터{' '}
-              <b style={{ color: metaColor }}>{selected.metacritic}%</b>의
-              평가를 받고 있어요.
+              This game is rated {''}
+              <b style={{ color: metaColor }}>{selected.metacritic}%</b> by
+              users.
             </div>
           </div>
           <LinkBtn to={`/app/${selected.id}`} className={classes.link}>
-            자세히 보기
+            read more
           </LinkBtn>
         </Fragment>
       )}
@@ -86,12 +86,12 @@ const MainRandGame = () => {
 
   return (
     <section className={classes.rand}>
-      <h2 className={classes.title}>오늘은 이 게임 어때?</h2>
+      <h2 className={classes.title}>How about this game today?</h2>
       <div className={classes.content}>
         <div className={classes.left}>{errControl(leftContent)}</div>
         <div className={classes.right}>
           {errControl(rightContent)}
-          <button onClick={reloadGameHandler}>이 게임 말고!</button>
+          <button onClick={reloadGameHandler}>Not this game !</button>
         </div>
       </div>
     </section>

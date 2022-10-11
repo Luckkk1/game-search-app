@@ -16,7 +16,7 @@ const NicknameInput = props => {
     inputBlurHandler: nickBlurHandler,
     inputFocusHandler: nickFocusHandler,
     inputChangeHandler: nickChangeHandler,
-  } = useValidate(nickValidator, '올바른 닉네임을 입력해주세요.');
+  } = useValidate(nickValidator, 'Please enter a valid nickname.');
 
   const dispatch = useDispatch();
   // 리덕스를 통해 error를 통합 => formValid를 이끌어냄
@@ -40,7 +40,7 @@ const NicknameInput = props => {
   return (
     <div className={errorStyle(nickError)}>
       <label htmlFor="name" className={focusStyle(nickFocus)}>
-        닉네임<span className={classes.fill}>*</span>
+        Nickname<span className={classes.fill}>*</span>
       </label>
       <input
         type="text"

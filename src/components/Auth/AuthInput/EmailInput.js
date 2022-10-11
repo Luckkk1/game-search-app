@@ -16,7 +16,7 @@ const EmailInput = props => {
     inputBlurHandler: emailBlurHandler,
     inputFocusHandler: emailFocusHandler,
     inputChangeHandler: emailChangeHandler,
-  } = useValidate(emailValidator, '잘못된 양식의 이메일입니다.');
+  } = useValidate(emailValidator, 'Invalid form of email.');
 
   const dispatch = useDispatch();
 
@@ -41,7 +41,7 @@ const EmailInput = props => {
   return (
     <div className={errorStyle(emailError)}>
       <label htmlFor="email" className={focusStyle(emailFocus)}>
-        이메일<span className={classes.fill}>*</span>
+        E-Mail<span className={classes.fill}>*</span>
       </label>
       <input
         type="text"

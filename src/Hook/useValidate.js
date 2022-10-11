@@ -13,7 +13,7 @@ const useValidate = (validate, errMsg) => {
     if (!validate(enteredInput)) {
       setInputError(errMsg);
       if (enteredInput.trim() === '') {
-        setInputError('필수 입력 사항입니다.');
+        setInputError('Required.');
         setInputFocus(false);
       }
     } else {

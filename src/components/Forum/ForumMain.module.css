@@ -23,5 +23,14 @@
   color: #d9d9d9;
   padding: 0.3em 1em;
   border-radius: 5px;
+}
+
+.header .btnContainer {
+  display: flex;
+  align-items: center;
+}
+
+.btnContainer p {
+  color: #e63946;
   margin-right: 1em;
 }

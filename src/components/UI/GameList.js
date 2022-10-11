@@ -121,7 +121,7 @@ const GameList = props => {
           {props.listName && <h2>{props.listName}</h2>}
           {props.link && (
             <LinkBtn className={classes.more} to={props.link}>
-              더 보기
+              more
             </LinkBtn>
           )}
         </div>

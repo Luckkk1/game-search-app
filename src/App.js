@@ -45,8 +45,10 @@ const App = () => {
           {!isLoggedIn && <Route path={'/regi'} element={<Register />} />}
           {isLoggedIn && <Route path={'/profile'} element={<Profile />} />}
           <Route path={'/forum'} element={<GameForum />} />
-          <Route path={'/forum/:contId'} element={<GameForumCont />} />
-          <Route path={'/forum/add'} element={<AddGameForum />} />
+          <Route path={'/forum/id/:contId'} element={<GameForumCont />} />
+          {isLoggedIn && (
+            <Route path={'/forum/add'} element={<AddGameForum />} />
+          )}
           <Route path={'/browse/*'} element={<Game_Browse />} />
           <Route path={'/app/:gameId'} element={<Game_Detail />} />
         </Routes>

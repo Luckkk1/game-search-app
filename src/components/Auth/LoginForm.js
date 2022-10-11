@@ -117,11 +117,11 @@ const LoginForm = () => {
       className={btnAnimation ? classes.jump : ''}
       onClick={btnAnimationHandler}
     >
-      로그인
+      Login
     </button>
   ) : (
     <button type="submit" disabled>
-      항목을 입력해주세요.
+      Please fill the blank
     </button>
   );
 
@@ -145,7 +145,7 @@ const LoginForm = () => {
         <div className={classes.btnCont}>{button}</div>
         <div className={classes.aCont}>
           <Link to={'/regi'}>
-            GameBot 친구되기 <FontAwesomeIcon icon={faHandPointRight} />
+            Become GameBot Friends <FontAwesomeIcon icon={faHandPointRight} />
           </Link>
         </div>
       </form>

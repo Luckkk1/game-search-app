@@ -2,7 +2,7 @@ import WritingList from './WritingList';
 import { Link } from 'react-router-dom';
 import useHttp from '../../Hook/useHttp';
 import { forumSliceActions } from '../../store/forum';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import classes from './ForumMain.module.css';
 import { useEffect } from 'react';
@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 const ForumMain = () => {
   const { sendRequest: getWritesLength } = useHttp();
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   useEffect(() => {
     getWritesLength(
@@ -27,11 +28,15 @@ const ForumMain = () => {
     }
     dispatch(forumSliceActions.getWritesLength(count));
   };
+
   return (
     <section className={classes.forumMain}>
       <div className={classes.header}>
         <h2>Forum</h2>
-        <Link to={'/forum/add'}>Write</Link>
+        <div className={classes.btnContainer}>
+          {isLoggedIn ? '' : <p>Login First</p>}
+          <Link to={isLoggedIn ? '/forum/add' : '/login'}>Write</Link>
+        </div>
       </div>
       <WritingList />
     </section>

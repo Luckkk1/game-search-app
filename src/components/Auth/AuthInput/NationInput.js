@@ -22,7 +22,7 @@ const NationInput = props => {
       }
       setCurrentNation(data.country);
     } catch (err) {
-      setNationError('수동으로 선택해 주세요.');
+      setNationError('Please select manually.');
     }
   }, []);
 
@@ -51,7 +51,7 @@ const NationInput = props => {
   return (
     <div className={classes.formControl}>
       <label htmlFor="nation" className={classes.focus}>
-        국가 <span className={classes.fill}>*</span>
+        Nation <span className={classes.fill}>*</span>
       </label>
       {!nationError ? (
         <input

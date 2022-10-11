@@ -22,7 +22,10 @@ const PasswordInput = props => {
     inputBlurHandler: passwordBlurHandler,
     inputFocusHandler: passwordFocusHandler,
     inputChangeHandler: passwordChangeHandler,
-  } = useValidate(passwordValidator, '6자 이상, 특수문자 포함');
+  } = useValidate(
+    passwordValidator,
+    '6 or more characters, including special characters'
+  );
 
   const dispatch = useDispatch();
 
@@ -61,7 +64,7 @@ const PasswordInput = props => {
   return (
     <div className={errorStyle(passwordError)}>
       <label htmlFor="password" className={focusStyle(passwordFocus)}>
-        비밀번호<span className={classes.fill}>*</span>
+        Password<span className={classes.fill}>*</span>
       </label>
       <div className={classes.passwordIcon} onClick={pwIconClickHandler}>
         {passwordVisibleIcon}

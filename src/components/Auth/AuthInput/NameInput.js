@@ -16,7 +16,7 @@ const NameInput = props => {
     inputBlurHandler: nameBlurHandler,
     inputFocusHandler: nameFocusHandler,
     inputChangeHandler: nameChangeHandler,
-  } = useValidate(nameValidator, '올바른 이름을 입력해주세요.');
+  } = useValidate(nameValidator, 'Please enter a valid name.');
 
   const dispatch = useDispatch();
   // 리덕스를 통해 error를 통합 => formValid를 이끌어냄
@@ -40,7 +40,7 @@ const NameInput = props => {
   return (
     <div className={errorStyle(nameError)}>
       <label htmlFor="name" className={focusStyle(nameFocus)}>
-        성명<span className={classes.fill}>*</span>
+        Name<span className={classes.fill}>*</span>
       </label>
       <input
         type="text"

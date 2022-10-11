@@ -78,7 +78,7 @@ const ProfileMeta = props => {
         )}
       </div>
       <div className={classes.recent}>
-        <h2>최근 게시물</h2>
+        <h2>Recent Posts</h2>
         <ul className={classes.ul}>
           <li>
             <Link to={'/'}>*미구현 더미 데이터</Link>
