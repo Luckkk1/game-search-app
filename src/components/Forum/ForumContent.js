@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 import classes from './ForumContent.module.css';
 import useHttp from '../../Hook/useHttp';
@@ -8,6 +8,7 @@ const ForumContent = () => {
   const { isLoading, error, success, sendRequest } = useHttp();
   const [data, setData] = useState({});
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     sendRequest(
@@ -31,6 +32,10 @@ const ForumContent = () => {
     }
   };
 
+  const goBackClickHandler = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={classes.contentBox}>
       <div className={classes.bar}>
@@ -38,6 +43,7 @@ const ForumContent = () => {
         <div className={classes.meta}>
           <p>{data.nick}</p>
           <p>{data.date}</p>
+          <button onClick={goBackClickHandler}>Back</button>
         </div>
       </div>
       <div className={classes.content}>{data.text}</div>

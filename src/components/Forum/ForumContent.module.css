@@ -17,20 +17,31 @@
   align-items: center;
   background-color: #d9d9d9;
   height: 1.5em;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   padding: 0.5em;
   border-radius: 5px;
   font-weight: 400;
-  flex-basis: 90%;
+  flex-basis: 75%;
 }
 
 .bar .meta {
   display: flex;
-  flex-direction: column;
   color: #d9d9d9;
+  align-items: center;
 }
 
-.meta p:first-child {
+.meta p:not(.meta button) {
+  margin-right: 1em;
+}
+
+.meta button {
+  color: #d9d9d9;
+  border: 1px solid #d9d9d9;
+  font-size: 1rem;
+  padding: 0.25em 0.5em;
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .contentBox .content {
@@ -38,7 +49,7 @@
   margin-top: 2em;
   height: 88%;
   border-radius: 5px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 1em;
   white-space: pre-wrap;
   font-weight: 400;
